@@ -1,0 +1,173 @@
+.character-card {
+  margin: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px 0 16px;
+
+  .affiliation-badge,
+  .power-badge {
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+.image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+
+  .character-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .rating-overlay {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+
+    .rating-badge {
+      font-weight: 600;
+    }
+  }
+
+  .universe-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-weight: 600;
+  }
+
+  .favorite-fab {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    ion-fab-button {
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.character-name {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.aliases {
+  font-size: 0.9em;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.power-stats {
+  margin: 16px 0;
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 12px;
+
+    .stat-label {
+      min-width: 80px;
+      font-size: 0.85em;
+      font-weight: 500;
+      color: var(--ion-color-medium);
+    }
+
+    ion-progress-bar {
+      flex: 1;
+      height: 8px;
+      border-radius: 4px;
+    }
+
+    .stat-value {
+      min-width: 24px;
+      font-size: 0.8em;
+      font-weight: 600;
+      text-align: right;
+      color: var(--ion-color-dark);
+    }
+  }
+}
+
+.powers-section {
+  margin: 16px 0;
+
+  .section-label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+  }
+
+  .powers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    ion-chip {
+      margin: 0;
+      font-size: 0.8em;
+      height: 24px;
+
+      ion-label {
+        font-size: 0.75em;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.first-appearance {
+  text-align: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ion-color-light-shade);
+}
+
+// Responsive
+@media (max-width: 480px) {
+  .character-card {
+    margin: 8px;
+  }
+
+  .image-container {
+    height: 160px;
+  }
+
+  .power-stats .stat-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+
+    .stat-label {
+      min-width: auto;
+    }
+
+    .stat-value {
+      text-align: left;
+    }
+  }
+}
+
+// Estados de accesibilidad
+.character-card:focus-visible {
+  outline: 2px solid var(--ion-color-primary);
+  outline-offset: 2px;
+}

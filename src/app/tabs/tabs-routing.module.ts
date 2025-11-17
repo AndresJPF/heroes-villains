@@ -9,15 +9,15 @@ const routes: Routes = [
     children: [
       {
         path: 'explore',
-        loadChildren: () => import('../explore/explore.module').then(m => m.ExplorePageModule)
+        loadChildren: () => import('../explore/explore.module').then(m => m.ExplorePageModule)  // ✅ loadChildren con módulo
       },
       {
         path: 'favorites',
-        loadChildren: () => import('../favorites/favorites.module').then(m => m.FavoritesPageModule)
+        loadChildren: () => import('../favorites/favorites.module').then(m => m.FavoritesPageModule)  // ✅ loadChildren
       },
       {
         path: 'settings',
-        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule)
+        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule)  // ✅ loadChildren
       },
       {
         path: '',
