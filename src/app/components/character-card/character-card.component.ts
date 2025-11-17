@@ -1,12 +1,14 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Character } from '../../models/character.interface';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { Character } from '../../models/character.interface';
 
 @Component({
   selector: 'app-character-card',
   templateUrl: './character-card.component.html',
   styleUrls: ['./character-card.component.scss'],
+  standalone: true,  // ✅ Hacerlo standalone explícitamente
+  imports: [CommonModule, IonicModule]
 })
 export class CharacterCardComponent {
   @Input() character!: Character;
@@ -55,7 +57,7 @@ export class CharacterCardComponent {
 
   getPowerLevel(): string {
     const totalPower = Object.values(this.character.powerStats).reduce((a, b) => a + b, 0);
-    const maxPower = 600; // Máximo teórico
+    const maxPower = 600;
     
     if (totalPower >= 450) return 'Muy Alto';
     if (totalPower >= 300) return 'Alto';

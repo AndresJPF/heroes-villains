@@ -23,11 +23,11 @@
   </div>
 
   <div class="image-container">
-    <ion-img 
-      [src]="character.image" 
-      [alt]="character.name"
-      class="character-image">
-    </ion-img>
+    <!-- Imagen placeholder por ahora -->
+    <div class="image-placeholder">
+      <ion-icon name="person" size="large"></ion-icon>
+      <p>{{ character.name }}</p>
+    </div>
     
     <div class="rating-overlay">
       <ion-badge color="warning" class="rating-badge">
