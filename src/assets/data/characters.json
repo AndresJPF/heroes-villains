@@ -1,0 +1,172 @@
+{
+  "characters": [
+    {
+      "id": "batman",
+      "name": "Batman",
+      "aliases": ["Bruce Wayne", "The Dark Knight"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 95,
+        "strength": 30,
+        "speed": 30,
+        "durability": 40,
+        "power": 40,
+        "combat": 95
+      },
+      "powers": ["Detective skills", "Martial arts", "Technology", "Wealth"],
+      "weaknesses": ["Human limits", "No superpowers"],
+      "firstAppearance": 1939,
+      "rating": 4.7,
+      "image": "assets/images/batman.jpg",
+      "biography": "Bruce Wayne, traumatizado por el asesinato de sus padres, se entrena física y mentalmente para combatir el crimen en Gotham City.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Batman"
+      }
+    },
+    {
+      "id": "superman",
+      "name": "Superman",
+      "aliases": ["Clark Kent", "Man of Steel"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 90,
+        "strength": 100,
+        "speed": 100,
+        "durability": 100,
+        "power": 100,
+        "combat": 85
+      },
+      "powers": ["Super strength", "Flight", "Heat vision", "X-ray vision"],
+      "weaknesses": ["Kryptonite", "Magic"],
+      "firstAppearance": 1938,
+      "rating": 4.9,
+      "image": "assets/images/superman.jpg",
+      "biography": "El último hijo de Krypton, enviado a la Tierra donde se convierte en su mayor protector.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Superman"
+      }
+    },
+    {
+      "id": "joker",
+      "name": "Joker",
+      "aliases": ["The Clown Prince of Crime"],
+      "universe": "DC",
+      "affiliation": "Villain",
+      "powerStats": {
+        "intelligence": 90,
+        "strength": 15,
+        "speed": 20,
+        "durability": 30,
+        "power": 25,
+        "combat": 70
+      },
+      "powers": ["Criminal mastermind", "Expert chemist", "Manipulation"],
+      "weaknesses": ["Mental instability", "Obsession with Batman"],
+      "firstAppearance": 1940,
+      "rating": 4.5,
+      "image": "assets/images/joker.jpg",
+      "biography": "Un criminal psicópata con un sentido del humor retorcido, obsesionado con Batman.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Joker_(personaje)"
+      }
+    },
+    {
+      "id": "spiderman",
+      "name": "Spider-Man",
+      "aliases": ["Peter Parker", "Spidey"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 90,
+        "strength": 55,
+        "speed": 65,
+        "durability": 60,
+        "power": 70,
+        "combat": 85
+      },
+      "powers": ["Wall-crawling", "Spider-sense", "Super strength", "Web shooting"],
+      "weaknesses": ["Responsibility", "Personal life conflicts"],
+      "firstAppearance": 1962,
+      "rating": 4.6,
+      "image": "assets/images/spiderman.jpg",
+      "biography": "Peter Parker, un adolescente que obtiene poderes arácnidos después de ser picado por una araña radiactiva.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Spider-Man"
+      }
+    },
+    {
+      "id": "thanos",
+      "name": "Thanos",
+      "aliases": ["The Mad Titan"],
+      "universe": "Marvel",
+      "affiliation": "Villain",
+      "powerStats": {
+        "intelligence": 95,
+        "strength": 95,
+        "speed": 50,
+        "durability": 90,
+        "power": 100,
+        "combat": 85
+      },
+      "powers": ["Super strength", "Energy projection", "Teleportation", "Immortality"],
+      "weaknesses": ["Arrogance", "Emotional attachments"],
+      "firstAppearance": 1973,
+      "rating": 4.8,
+      "image": "assets/images/thanos.jpg",
+      "biography": "Un poderoso titán obsesionado con el concepto de equilibrio en el universo.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Thanos"
+      }
+    },
+    {
+      "id": "wonder-woman",
+      "name": "Wonder Woman",
+      "aliases": ["Diana Prince", "Amazon Princess"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 88,
+        "strength": 90,
+        "speed": 85,
+        "durability": 95,
+        "power": 90,
+        "combat": 95
+      },
+      "powers": ["Super strength", "Flight", "Lasso of Truth", "Combat skills"],
+      "weaknesses": ["Piercing weapons", "Being bound by a man"],
+      "firstAppearance": 1941,
+      "rating": 4.6,
+      "image": "assets/images/wonder-woman.jpg",
+      "biography": "Princesa amazona y superheroína que lucha por la justicia y la paz.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Wonder_Woman"
+      }
+    },
+    {
+      "id": "iron-man",
+      "name": "Iron Man",
+      "aliases": ["Tony Stark", "The Invincible Iron Man"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 100,
+        "strength": 85,
+        "speed": 60,
+        "durability": 85,
+        "power": 90,
+        "combat": 65
+      },
+      "powers": ["Powered armor suit", "Genius intellect", "Flight", "Weapons systems"],
+      "weaknesses": ["Dependence on armor", "Heart condition", "Arrogance"],
+      "firstAppearance": 1963,
+      "rating": 4.7,
+      "image": "assets/images/iron-man.jpg",
+      "biography": "Tony Stark, un genio inventor que crea una armadura tecnológica para combatir el crimen.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Iron_Man"
+      }
+    }
+  ]
+}

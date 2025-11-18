@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
   selector: 'app-character-card',
   templateUrl: './character-card.component.html',
   styleUrls: ['./character-card.component.scss'],
-  standalone: true,  // ✅ Hacerlo standalone explícitamente
+  standalone: true,  
   imports: [CommonModule, IonicModule]
 })
 export class CharacterCardComponent {

@@ -80,4 +80,9 @@ export class FavoritesService {
       return await this.addToFavorites(character);
     }
   }
+
+  async getFavoriteIds(): Promise<string[]> {
+    const favorites = await this.getFavorites();
+    return favorites.map(fav => fav.id);
+  }
 }
