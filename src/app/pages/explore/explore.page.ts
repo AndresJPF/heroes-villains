@@ -4,8 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { CharactersService } from '../services/characters.service';
 import { FavoritesService } from '../services/favorites.service';
-import { CharacterCardComponent } from '../components/character-card/character-card.component';
-import { Character, CharacterFilter } from '../models/character.interface';
+import { CharacterCardComponent } from '../../components/character-card/character-card.component';
+import { Character, CharacterFilter } from '../../models/character.interface';
 
 @Component({
   selector: 'app-explore',

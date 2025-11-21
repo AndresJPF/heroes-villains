@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
-import { Character, CharacterFilter } from '../models/character.interface';
+import { Character, CharacterFilter } from '../../models/character.interface';
 
 export interface CharactersResponse {
   characters: Character[];

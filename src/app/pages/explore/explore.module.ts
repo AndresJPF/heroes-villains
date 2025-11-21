@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ExplorePageRoutingModule } from './explore-routing.module';
-import { ExplorePage } from './explore.page';
-import { CharacterCardComponent } from '../components/character-card/character-card.component';  // ✅ Importar el componente directamente
+import { CharacterCardComponent } from '../../components/character-card/character-card.component';  
 
 @NgModule({
   imports: [
@@ -13,8 +12,8 @@ import { CharacterCardComponent } from '../components/character-card/character-c
     FormsModule,
     IonicModule,
     ExplorePageRoutingModule,
-    CharacterCardComponent  // ✅ IMPORTAR el componente standalone (no el módulo)
+    CharacterCardComponent  
   ],
-  declarations: []  // ✅ Vacío porque todos los componentes se importan
+  declarations: [] 
 })
 export class ExplorePageModule {}

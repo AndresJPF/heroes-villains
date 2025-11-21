@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FavoritesService } from '../services/favorites.service';
 import { CharactersService } from '../services/characters.service';
-import { CharacterCardComponent } from '../components/character-card/character-card.component';
-import { Character } from '../models/character.interface';
+import { CharacterCardComponent } from '../../components/character-card/character-card.component';
+import { Character } from '../../models/character.interface';
 
 @Component({
   selector: 'app-favorites',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
-import { Character } from '../models/character.interface';
+import { Character } from '../../models/character.interface';
 
 @Injectable({
   providedIn: 'root'
