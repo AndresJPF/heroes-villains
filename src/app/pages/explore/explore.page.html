@@ -103,7 +103,7 @@
       *ngFor="let character of filteredCharacters"
       [character]="character"
       [isFavorite]="false"
-      (favoriteToggled)="onFavoriteToggled($event)"
+      
       (cardClicked)="onCharacterClicked($event)">
     </app-character-card>
 

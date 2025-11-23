@@ -1,57 +1,42 @@
+<!-- src/app/pages/favorites/favorites.page.html -->
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/explore"></ion-back-button>
+    </ion-buttons>
     <ion-title>Favoritos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Favoritos</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <!-- Pull to Refresh -->
-  <ion-refresher slot="fixed" (ionRefresh)="refreshFavorites($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
-  <!-- Loading State -->
-  <div *ngIf="isLoading" class="loading-state">
-    <ion-spinner name="crescent"></ion-spinner>
+  <div class="loading" *ngIf="loading">
+    <ion-spinner></ion-spinner>
     <p>Cargando favoritos...</p>
   </div>
 
-  <!-- Empty State -->
-  <div *ngIf="!isLoading && favoriteCharacters.length === 0" class="empty-state">
-    <ion-icon name="heart-outline" class="empty-icon"></ion-icon>
-    <h3>{{ emptyStateMessage }}</h3>
-    <p>{{ emptyStateSubtitle }}</p>
-    <ion-button 
-      fill="solid" 
-      color="primary" 
-      routerLink="/tabs/explore"
-      class="explore-button">
-      <ion-icon slot="start" name="search"></ion-icon>
-      Explorar Personajes
-    </ion-button>
-  </div>
-
-  <!-- Favorites List -->
-  <div *ngIf="!isLoading && favoriteCharacters.length > 0" class="favorites-grid">
-    <div class="favorites-header">
-      <ion-text color="medium">
-        <small>{{ favoriteCharacters.length }} personaje(s) favorito(s)</small>
-      </ion-text>
+  <div class="favorites-container" *ngIf="!loading">
+    <div class="results-info">
+      {{ favorites.length }} {{ favorites.length === 1 ? 'favorito' : 'favoritos' }}
     </div>
 
-    <app-character-card 
-      *ngFor="let character of favoriteCharacters"
-      [character]="character"
-      [isFavorite]="true"
-      [showFavoriteButton]="true"
-      (favoriteToggled)="onFavoriteToggled($event)"
-      (cardClicked)="onCharacterClicked($event)">
-    </app-character-card>
+    <div class="characters-grid" *ngIf="favorites.length > 0">
+      <app-character-card>
+        *ngFor="let favorite of favorites"
+        [character]="favorite.character" <!-- Pasar el character completo -->
+        [isFavorite]="true"
+        (favoriteToggled)="onFavoriteToggled($event)"
+        (cardClicked)="viewCharacter($event)">
+      </app-character-card>
+    </div>
+
+    <div class="empty-state" *ngIf="favorites.length === 0">
+      <ion-icon name="heart-outline" size="large"></ion-icon>
+      <h3>No tienes favoritos</h3>
+      <p>Agrega algunos personajes a tus favoritos desde la página de exploración</p>
+    </div>
   </div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 </ion-content>

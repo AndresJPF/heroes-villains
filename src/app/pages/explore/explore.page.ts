@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { CharactersService } from '../services/characters.service';
-import { FavoritesService } from '../services/favorites.service';
+import { FavoriteService } from '../services/favorites.service';
 import { CharacterCardComponent } from '../../components/character-card/character-card.component';
 import { Character, CharacterFilter } from '../../models/character.interface';
 
@@ -39,7 +39,7 @@ export class ExplorePage implements OnInit {
 
   constructor(
     private charactersService: CharactersService,
-    private favoritesService: FavoritesService
+    private favoriteService: FavoriteService
   ) { }
 
   async ngOnInit() {
@@ -188,10 +188,10 @@ export class ExplorePage implements OnInit {
     console.log('Favorites status checked');
   }
 
-  async onFavoriteToggled(character: Character) {
-    await this.favoritesService.toggleFavorite(character);
-    await this.checkFavoritesStatus();
-  }
+  // async onFavoriteToggled(character: Character) {
+  //   await this.favoriteService.toggleFavorite(character);
+  //   await this.checkFavoritesStatus();
+  // }
 
   onCharacterClicked(characterId: string) {
     console.log('Character clicked:', characterId);
