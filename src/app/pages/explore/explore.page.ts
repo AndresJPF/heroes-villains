@@ -35,6 +35,7 @@ export class ExplorePage implements OnInit {
 
   // Debounce para búsqueda
   private searchTimeout: any;
+  router: any;
 
   constructor(
     private charactersService: CharactersService,
@@ -194,10 +195,17 @@ export class ExplorePage implements OnInit {
 
   onCharacterClicked(characterId: string) {
     console.log('Character clicked:', characterId);
+    this.viewCharacter(characterId);
   }
 
   async refreshCharacters(event: any) {
     await this.loadCharacters();
     event.target.complete();
   }
+
+  viewCharacter(characterId: string) {
+    console.log('Character clicked:', characterId);
+    this.router.navigate(['/detail', characterId]);
+  }
+
 }
