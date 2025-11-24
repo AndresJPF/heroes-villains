@@ -20,9 +20,9 @@
     </div>
 
     <div class="characters-grid" *ngIf="favorites.length > 0">
-      <app-character-card>
+      <app-character-card 
         *ngFor="let favorite of favorites"
-        [character]="favorite.character" <!-- Pasar el character completo -->
+        [character]="favorite.character"
         [isFavorite]="true"
         (favoriteToggled)="onFavoriteToggled($event)"
         (cardClicked)="viewCharacter($event)">

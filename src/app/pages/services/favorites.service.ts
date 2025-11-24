@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Favorite } from '../../models/favorites.model';
 import { CharactersService } from './characters.service';
+import { lastValueFrom } from 'rxjs'; // Importar esto
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class FavoriteService {
   private apiUrl = 'http://localhost:3000';
   private userId = 'default-user';
 
-  constructor(private charactersService: CharactersService) {} // Inyectar correctamente
+  constructor(private charactersService: CharactersService) {}
 
   // Obtener todos los favoritos
   async getFavorites(): Promise<Favorite[]> {
@@ -74,22 +75,25 @@ export class FavoriteService {
     return favorites.some(f => f.characterId === characterId);
   }
 
-  // Obtener favoritos con datos de personajes
+  // Obtener favoritos con datos de personajes - CORREGIDO
   async getFavoritesWithCharacters(): Promise<any[]> {
     const favorites = await this.getFavorites();
     
-    // Obtener datos completos de cada personaje
+    // Obtener datos completos de cada personaje usando lastValueFrom
     const favoritesWithCharacters = await Promise.all(
       favorites.map(async (favorite) => {
         try {
-          const character = await this.charactersService.getCharacterById(favorite.characterId);
+          // Convertir Observable a Promise usando lastValueFrom
+          const character = await lastValueFrom(
+            this.charactersService.getCharacterById(favorite.characterId)
+          );
           return {
             ...favorite,
             character: character
           };
         } catch (error) {
           console.error(`Error loading character ${favorite.characterId}:`, error);
-          // Si falla, al menos retornar el favorite básico
+          // Si falla, retorna el favorite básico
           return {
             ...favorite,
             character: {
@@ -105,16 +109,4 @@ export class FavoriteService {
     
     return favoritesWithCharacters;
   }
-
-  // Eliminar el método toggleFavorite que no se usa o implementarlo
-  /*
-  async toggleFavorite(character: any): Promise<void> {
-    const isFav = await this.isFavorite(character.id);
-    if (isFav) {
-      await this.removeFavorite(character.id);
-    } else {
-      await this.addFavorite(character.id);
-    }
-  }
-  */
 }

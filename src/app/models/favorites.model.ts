@@ -1,7 +1,7 @@
 export interface Favorite {
-  id?: string;
-  characterId: string; // Cambiar a string
+  id?: number; // ID auto-generado por json Server
+  characterId: string; // ID del personaje basado en su el nombre
   userId: string;
   addedAt: string;
-  character?: any;
+  character?: any; // Para expandir con datos del personaje después
 }

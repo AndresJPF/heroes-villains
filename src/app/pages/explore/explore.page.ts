@@ -188,10 +188,21 @@ export class ExplorePage implements OnInit {
     console.log('Favorites status checked');
   }
 
-  // async onFavoriteToggled(character: Character) {
-  //   await this.favoriteService.toggleFavorite(character);
-  //   await this.checkFavoritesStatus();
-  // }
+async onFavoriteToggled(characterId: string) {
+  try {
+    const isCurrentlyFavorite = await this.favoriteService.isFavorite(characterId);
+    
+    if (isCurrentlyFavorite) {
+      await this.favoriteService.removeFavorite(characterId);
+      console.log('Removed from favorites:', characterId);
+    } else {
+      await this.favoriteService.addFavorite(characterId);
+      console.log('Added to favorites:', characterId);
+    }
+  } catch (error) {
+    console.error('Error toggling favorite:', error);
+  }
+}
 
   onCharacterClicked(characterId: string) {
     console.log('Character clicked:', characterId);

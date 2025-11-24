@@ -15,7 +15,7 @@ import { CharacterCardComponent } from '../../components/character-card/characte
   imports: [CommonModule, IonicModule, CharacterCardComponent]
 })
 export class FavoritesPage implements OnInit {
-  favorites: any[] = []; // Cambiar a any[] para incluir character expandido
+  favorites: any[] = [];
   loading = true;
 
   constructor(
@@ -39,9 +39,14 @@ export class FavoritesPage implements OnInit {
   }
 
   async onFavoriteToggled(characterId: string) {
-    console.log('Favorite toggled:', characterId);
-    await this.loadFavorites(); // Recargar después de eliminar
+  try {
+    await this.favoriteService.removeFavorite(characterId);
+    console.log('Removed from favorites:', characterId);
+    await this.loadFavorites(); // Recargar la lista
+  } catch (error) {
+    console.error('Error removing favorite:', error);
   }
+}
 
   viewCharacter(characterId: string) {
     this.router.navigate(['/detail', characterId]);
