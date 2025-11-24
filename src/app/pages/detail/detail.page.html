@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/explore"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles del Personaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <h2>Detalles del Personaje</h2>
+    <p>ID: {{ characterId }}</p>
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información del Personaje</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button (click)="router.navigate(['/explore'])">
+          Volver a Explorar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

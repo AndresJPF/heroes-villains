@@ -1,0 +1,42 @@
+<!-- src/app/pages/favorites/favorites.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/explore"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="loading" *ngIf="loading">
+    <ion-spinner></ion-spinner>
+    <p>Cargando favoritos...</p>
+  </div>
+
+  <div class="favorites-container" *ngIf="!loading">
+    <div class="results-info">
+      {{ favorites.length }} {{ favorites.length === 1 ? 'favorito' : 'favoritos' }}
+    </div>
+
+    <div class="characters-grid" *ngIf="favorites.length > 0">
+      <app-character-card 
+        *ngFor="let favorite of favorites"
+        [character]="favorite.character"
+        [isFavorite]="true"
+        (favoriteToggled)="onFavoriteToggled($event)"
+        (cardClicked)="viewCharacter($event)">
+      </app-character-card>
+    </div>
+
+    <div class="empty-state" *ngIf="favorites.length === 0">
+      <ion-icon name="heart-outline" size="large"></ion-icon>
+      <h3>No tienes favoritos</h3>
+      <p>Agrega algunos personajes a tus favoritos desde la página de exploración</p>
+    </div>
+  </div>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+</ion-content>
