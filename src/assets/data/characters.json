@@ -3,6 +3,9 @@
     {
       "id": "batman",
       "name": "Batman",
+      "thumbnail": {
+      "path": "assets/images/characters/batman",
+      "extension": "jpg"},
       "aliases": ["Bruce Wayne", "The Dark Knight"],
       "universe": "DC",
       "affiliation": "Hero",
@@ -18,7 +21,7 @@
       "weaknesses": ["Human limits", "No superpowers"],
       "firstAppearance": 1939,
       "rating": 4.7,
-      "image": "assets/images/batman.jpg",
+      "image": "assets/images/characters/batman.jpg",
       "biography": "Bruce Wayne, traumatizado por el asesinato de sus padres, se entrena física y mentalmente para combatir el crimen en Gotham City.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Batman"
@@ -27,6 +30,9 @@
     {
       "id": "superman",
       "name": "Superman",
+      "thumbnail": {
+      "path": "assets/images/characters/superman",
+      "extension": "jpg"},
       "aliases": ["Clark Kent", "Man of Steel"],
       "universe": "DC",
       "affiliation": "Hero",
@@ -51,6 +57,9 @@
     {
       "id": "joker",
       "name": "Joker",
+      "thumbnail": {
+      "path": "assets/images/characters/joker",
+      "extension": "jpg"},
       "aliases": ["The Clown Prince of Crime"],
       "universe": "DC",
       "affiliation": "Villain",
@@ -75,6 +84,9 @@
     {
       "id": "spiderman",
       "name": "Spider-Man",
+      "thumbnail": {
+      "path": "assets/images/characters/Spiderman",
+      "extension": "jpg"},
       "aliases": ["Peter Parker", "Spidey"],
       "universe": "Marvel",
       "affiliation": "Hero",
@@ -99,6 +111,9 @@
     {
       "id": "thanos",
       "name": "Thanos",
+      "thumbnail": {
+      "path": "assets/images/characters/thanos",
+      "extension": "jpg"},
       "aliases": ["The Mad Titan"],
       "universe": "Marvel",
       "affiliation": "Villain",
@@ -123,6 +138,9 @@
     {
       "id": "wonder-woman",
       "name": "Wonder Woman",
+      "thumbnail": {
+      "path": "assets/images/characters/wonder-woman",
+      "extension": "jpg"},
       "aliases": ["Diana Prince", "Amazon Princess"],
       "universe": "DC",
       "affiliation": "Hero",
@@ -147,6 +165,9 @@
     {
       "id": "iron-man",
       "name": "Iron Man",
+      "thumbnail": {
+      "path": "assets/images/characters/iron-man",
+      "extension": "jpg"},
       "aliases": ["Tony Stark", "The Invincible Iron Man"],
       "universe": "Marvel",
       "affiliation": "Hero",
