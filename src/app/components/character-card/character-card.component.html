@@ -1,16 +1,14 @@
-<!-- src/app/components/character-card/character-card.component.html -->
 <ion-card (click)="onCardClick()" class="character-card">
-  <!-- Imagen del personaje -->
   <div class="card-image">
     <img 
       [src]="character.thumbnail?.path + '.' + character.thumbnail?.extension" 
       [alt]="character.name"
       class="character-image"
+      (error)="onImageError($event)"
     />
     
     <!-- Botón de favoritos -->
     <ion-button 
-      *ngIf="showFavoriteButton"
       fill="clear" 
       class="favorite-btn"
       (click)="onFavoriteClick($event)"
@@ -22,13 +20,25 @@
     </ion-button>
 
     <!-- Badge de universo -->
-    <div class="universe-badge" *ngIf="character.universe">
+    <div class="universe-badge">
       {{ character.universe }}
+    </div>
+
+    <!-- Rating -->
+    <div class="rating-badge" *ngIf="character.rating">
+      <ion-icon name="star"></ion-icon>
+      {{ character.rating }}
     </div>
   </div>
 
   <ion-card-header>
     <ion-card-title class="character-name">{{ character.name }}</ion-card-title>
+    
+    <!-- Aliases -->
+    <div class="aliases" *ngIf="character.aliases && character.aliases.length > 0">
+      <small>"{{ character.aliases[0] }}"</small>
+    </div>
+
     <ion-card-subtitle>
       <!-- Chip de afiliación -->
       <ion-chip 
@@ -37,36 +47,68 @@
         class="affiliation-chip"
       >
         <ion-icon [name]="getAffiliationIcon(character.affiliation)"></ion-icon>
-        <ion-label>{{ character.affiliation || 'Unknown' }}</ion-label>
+        <ion-label>{{ character.affiliation }}</ion-label>
+      </ion-chip>
+
+      <!-- Primera aparición -->
+      <ion-chip color="medium" outline *ngIf="character.firstAppearance">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>{{ character.firstAppearance }}</ion-label>
       </ion-chip>
     </ion-card-subtitle>
   </ion-card-header>
 
   <ion-card-content>
-    <!-- Descripción -->
-    <p class="description">
-      {{ character.description || 'Sin descripción disponible' }}
+    <!-- Biografía/Descripción -->
+    <p class="biography">
+      {{ character.biography || 'Sin biografía disponible' }}
     </p>
     
-    <!-- Estadísticas de poder -->
-    <div class="power-stats" *ngIf="character.powerStats">
+    <!-- Estadísticas de poder rápidas -->
+    <div class="quick-stats" *ngIf="character.powerStats">
+      <div class="stat-row">
+        <div class="stat-item">
+          <small>Fuerza</small>
+          <ion-badge [color]="getStatColor(character.powerStats.strength)">
+            {{ character.powerStats.strength }}
+          </ion-badge>
+        </div>
+        <div class="stat-item">
+          <small>Velocidad</small>
+          <ion-badge [color]="getStatColor(character.powerStats.speed)">
+            {{ character.powerStats.speed }}
+          </ion-badge>
+        </div>
+        <div class="stat-item">
+          <small>Inteligencia</small>
+          <ion-badge [color]="getStatColor(character.powerStats.intelligence)">
+            {{ character.powerStats.intelligence }}
+          </ion-badge>
+        </div>
+      </div>
+    </div>
+
+    <!-- Poderes (primeros 2) -->
+    <div class="powers-preview" *ngIf="character.powers && character.powers.length > 0">
+      <small>Poderes: </small>
+      <ion-badge color="success" *ngFor="let power of character.powers.slice(0, 2)">
+        {{ power }}
+      </ion-badge>
+      <ion-badge color="medium" *ngIf="character.powers.length > 2">
+        +{{ character.powers.length - 2 }}
+      </ion-badge>
+    </div>
+
+    <!-- Nivel de poder general -->
+    <div class="power-summary" *ngIf="character.powerStats">
       <div class="power-level">
+        <small>Poder Total</small>
         <ion-progress-bar 
           [color]="getPowerLevelColor(getPowerLevel(character.powerStats))"
           [value]="getPowerLevel(character.powerStats) / 100"
         ></ion-progress-bar>
-        <small class="power-text">
-          Nivel de poder: {{ getPowerLevel(character.powerStats) }}%
-        </small>
+        <span class="power-value">{{ getPowerLevel(character.powerStats) }}%</span>
       </div>
-    </div>
-
-    <!-- Rating -->
-    <div class="rating" *ngIf="character.rating !== undefined">
-      <ion-badge color="tertiary">
-        <ion-icon name="star"></ion-icon>
-        {{ character.rating }}/10
-      </ion-badge>
     </div>
   </ion-card-content>
 </ion-card>
