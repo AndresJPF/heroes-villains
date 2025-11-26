@@ -1,54 +1,92 @@
-.explore-container {
-  ion-content {
-    --background: var(--ion-background-color);
-  }
+ion-content {
+  --background: var(--ion-background-color);
 }
 
 .search-section {
   padding: 16px;
+  background: var(--ion-background-color);
   
   ion-searchbar {
+    --background: var(--ion-card-background);
+    --color: var(--ion-text-color);
+    --placeholder-color: var(--ion-color-medium);
     --border-radius: 8px;
     padding: 0;
   }
 }
 
+.controls-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 16px;
+  background: var(--ion-background-color);
+  
+  .filters-toggle, .clear-filters {
+    --color: var(--ion-color-primary);
+    font-size: 14px;
+  }
+  
+  .clear-filters[disabled] {
+    --color: var(--ion-color-medium);
+    opacity: 0.5;
+  }
+}
+
 .filters-section {
+  background: var(--ion-card-background);
   margin: 0 16px 16px;
   border-radius: 12px;
   padding: 16px;
+  border: 1px solid var(--ion-border-color);
   
   .filter-row {
     display: flex;
     gap: 12px;
     margin-bottom: 12px;
     
-    ion-select, ion-button {
+    ion-item {
       flex: 1;
+      --background: transparent;
+      --padding-start: 0;
+      --inner-padding-end: 0;
+      
+      ion-select {
+        width: 100%;
+      }
     }
   }
+}
+
+.results-info {
+  padding: 0 16px 16px;
+  background: var(--ion-background-color);
   
-  .active-filters {
-    font-size: 0.9rem;
+  .results-count {
     color: var(--ion-color-medium);
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: center;
+    
+    .active-filters {
+      color: var(--ion-color-primary);
+      font-style: italic;
+    }
   }
 }
 
-.characters-grid {
-  padding: 0 8px;
+.content-container {
+  min-height: 200px;
 }
 
-.results-count {
+.loading-state, .empty-state {
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--ion-color-medium);
-  margin: 8px 0;
-  padding: 0 16px;
-}
-
-.empty-state, .error-state {
-  text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
+  
+  ion-spinner {
+    margin-bottom: 16px;
+    --color: var(--ion-color-primary);
+  }
   
   ion-icon {
     font-size: 3rem;
@@ -57,11 +95,46 @@
   }
   
   h3 {
+    color: var(--ion-text-color);
     margin-bottom: 8px;
+    font-size: 1.2rem;
   }
   
   p {
     color: var(--ion-color-medium);
     line-height: 1.4;
+    margin-bottom: 16px;
   }
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 0 16px 16px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    padding: 0 12px 12px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 0 8px 8px;
+  }
+}
+
+// Estilos para el infinite scroll
+ion-infinite-scroll {
+  margin-bottom: 16px;
+}
+
+.no-more-data {
+  text-align: center;
+  padding: 20px;
+  color: var(--ion-color-medium);
+  font-style: italic;
+  background: var(--ion-background-color);
 }

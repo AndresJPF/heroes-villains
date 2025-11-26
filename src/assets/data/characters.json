@@ -3,10 +3,7 @@
     {
       "id": "batman",
       "name": "Batman",
-      "aliases": [
-        "Bruce Wayne",
-        "El Caballero de la Noche"
-      ],
+      "aliases": ["Bruce Wayne", "El Caballero de la Noche"],
       "universe": "DC",
       "affiliation": "Hero",
       "powerStats": {
@@ -17,16 +14,8 @@
         "power": 40,
         "combat": 90
       },
-      "powers": [
-        "Habilidades de detective",
-        "Artes marciales",
-        "Tecnología",
-        "Riqueza"
-      ],
-      "weaknesses": [
-        "Límites humanos",
-        "Sin superpoderes"
-      ],
+      "powers": ["Habilidades de detective", "Artes marciales", "Tecnología", "Riqueza"],
+      "weaknesses": ["Límites humanos", "Sin superpoderes"],
       "firstAppearance": 1939,
       "rating": 4.7,
       "image": "assets/images/characters/batman.jpg",
@@ -38,10 +27,7 @@
     {
       "id": "superman",
       "name": "Superman",
-      "aliases": [
-        "Clark Kent",
-        "El Hombre de Acero"
-      ],
+      "aliases": ["Clark Kent", "El Hombre de Acero"],
       "universe": "DC",
       "affiliation": "Hero",
       "powerStats": {
@@ -52,17 +38,8 @@
         "power": 100,
         "combat": 85
       },
-      "powers": [
-        "Vuelo",
-        "Visión de calor",
-        "Súper fuerza",
-        "Invulnerabilidad",
-        "Súper velocidad"
-      ],
-      "weaknesses": [
-        "Kryptonita",
-        "Magia"
-      ],
+      "powers": ["Vuelo", "Visión de calor", "Súper fuerza", "Invulnerabilidad", "Súper velocidad"],
+      "weaknesses": ["Kryptonita", "Magia"],
       "firstAppearance": 1938,
       "rating": 4.9,
       "image": "assets/images/characters/superman.jpg",
@@ -74,10 +51,7 @@
     {
       "id": "spiderman",
       "name": "Spider-Man",
-      "aliases": [
-        "Peter Parker",
-        "El Hombre Araña"
-      ],
+      "aliases": ["Peter Parker", "El Hombre Araña"],
       "universe": "Marvel",
       "affiliation": "Hero",
       "powerStats": {
@@ -88,16 +62,8 @@
         "power": 75,
         "combat": 85
       },
-      "powers": [
-        "Sentido arácnido",
-        "Trepa muros",
-        "Lanzatelarañas",
-        "Agilidad sobrehumana"
-      ],
-      "weaknesses": [
-        "Responsabilidad",
-        "Ser queridos en peligro"
-      ],
+      "powers": ["Sentido arácnido", "Trepa muros", "Lanzatelarañas", "Agilidad sobrehumana"],
+      "weaknesses": ["Responsabilidad", "Ser queridos en peligro"],
       "firstAppearance": 1962,
       "rating": 4.6,
       "image": "assets/images/characters/spiderman.jpg",
@@ -109,11 +75,9 @@
     {
       "id": "joker",
       "name": "Joker",
-      "aliases": [
-        "El Príncipe Payaso del Crimen"
-      ],
+      "aliases": ["El Príncipe Payaso del Crimen"],
       "universe": "DC",
-      "affiliation": "Villano",
+      "affiliation": "Villain",
       "powerStats": {
         "intelligence": 100,
         "strength": 10,
@@ -122,15 +86,8 @@
         "power": 40,
         "combat": 60
       },
-      "powers": [
-        "Manipulación psicológica",
-        "Estrategia criminal",
-        "Química"
-      ],
-      "weaknesses": [
-        "Impredecibilidad",
-        "Obsesión con Batman"
-      ],
+      "powers": ["Manipulación psicológica", "Estrategia criminal", "Química"],
+      "weaknesses": ["Impredecibilidad", "Obsesión con Batman"],
       "firstAppearance": 1940,
       "rating": 4.8,
       "image": "assets/images/characters/joker.jpg",
@@ -142,11 +99,9 @@
     {
       "id": "thanos",
       "name": "Thanos",
-      "aliases": [
-        "El Titán Loco"
-      ],
+      "aliases": ["El Titán Loco"],
       "universe": "Marvel",
-      "affiliation": "Villano",
+      "affiliation": "Villain",
       "powerStats": {
         "intelligence": 90,
         "strength": 100,
@@ -155,16 +110,8 @@
         "power": 100,
         "combat": 80
       },
-      "powers": [
-        "Fuerza sobrehumana",
-        "Manipulación de energía",
-        "Inmortalidad",
-        "Inteligencia estratégica"
-      ],
-      "weaknesses": [
-        "Arrogancia",
-        "Obsesión con la muerte"
-      ],
+      "powers": ["Fuerza sobrehumana", "Manipulación de energía", "Inmortalidad", "Inteligencia estratégica"],
+      "weaknesses": ["Arrogancia", "Obsesión con la muerte"],
       "firstAppearance": 1973,
       "rating": 4.7,
       "image": "assets/images/characters/thanos.jpg",
@@ -176,10 +123,7 @@
     {
       "id": "wonder-woman",
       "name": "Mujer Maravilla",
-      "aliases": [
-        "Diana Prince",
-        "Princesa de Themyscira"
-      ],
+      "aliases": ["Diana Prince", "Princesa de Themyscira"],
       "universe": "DC",
       "affiliation": "Hero",
       "powerStats": {
@@ -190,15 +134,8 @@
         "power": 95,
         "combat": 95
       },
-      "powers": [
-        "Fuerza sobrehumana",
-        "Vuelo",
-        "Brazaletes indestructibles",
-        "Lazo de la verdad"
-      ],
-      "weaknesses": [
-        "Ser atada por un hombre"
-      ],
+      "powers": ["Fuerza sobrehumana", "Vuelo", "Brazaletes indestructibles", "Lazo de la verdad"],
+      "weaknesses": ["Ser atada por un hombre"],
       "firstAppearance": 1941,
       "rating": 4.6,
       "image": "assets/images/characters/wonder-woman.jpg",
@@ -210,14 +147,7 @@
     {
       "id": "iron-man",
       "name": "Iron Man",
-      "thumbnail": {
-        "path": "assets/images/characters/iron-man",
-        "extension": "jpg"
-      },
-      "aliases": [
-        "Tony Stark",
-        "The Invincible Iron Man"
-      ],
+      "aliases": ["Tony Stark", "The Invincible Iron Man"],
       "universe": "Marvel",
       "affiliation": "Hero",
       "powerStats": {
@@ -228,17 +158,8 @@
         "power": 90,
         "combat": 65
       },
-      "powers": [
-        "Powered armor suit",
-        "Genius intellect",
-        "Flight",
-        "Weapons systems"
-      ],
-      "weaknesses": [
-        "Dependence on armor",
-        "Heart condition",
-        "Arrogance"
-      ],
+      "powers": ["Armadura tecnológica", "Intelecto genial", "Vuelo", "Sistemas de armas"],
+      "weaknesses": ["Dependencia de la armadura", "Problemas cardíacos", "Arrogancia"],
       "firstAppearance": 1963,
       "rating": 4.7,
       "image": "assets/images/characters/iron-man.jpg",
@@ -246,14 +167,559 @@
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Iron_Man"
       }
+    },
+    {
+      "id": "hulk",
+      "name": "Hulk",
+      "aliases": ["Bruce Banner", "El Hombre Increíble"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 85,
+        "strength": 100,
+        "speed": 70,
+        "durability": 100,
+        "power": 95,
+        "combat": 70
+      },
+      "powers": ["Fuerza ilimitada", "Regeneración", "Resistencia sobrehumana", "Transformación"],
+      "weaknesses": ["Control emocional", "Bruce Banner vulnerable"],
+      "firstAppearance": 1962,
+      "rating": 4.5,
+      "image": "assets/images/characters/hulk.jpg",
+      "biography": "Bruce Banner, un científico que se transforma en un gigante verde con fuerza increíble cuando se enfada.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Hulk"
+      }
+    },
+    {
+      "id": "flash",
+      "name": "Flash",
+      "aliases": ["Barry Allen", "El Hombre Más Rápido del Mundo"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 88,
+        "strength": 50,
+        "speed": 100,
+        "durability": 60,
+        "power": 100,
+        "combat": 60
+      },
+      "powers": ["Velocidad sobrehumana", "Viaje en el tiempo", "Vibración molecular", "Regeneración acelerada"],
+      "weaknesses": ["Agotamiento de energía", "Frío extremo"],
+      "firstAppearance": 1956,
+      "rating": 4.4,
+      "image": "assets/images/characters/flash.jpg",
+      "biography": "Barry Allen, un científico forense que obtiene velocidad sobrehumana tras un accidente con productos químicos.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Flash"
+      }
+    },
+    {
+      "id": "captain-america",
+      "name": "Capitán América",
+      "aliases": ["Steve Rogers", "Cap"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 85,
+        "strength": 80,
+        "speed": 50,
+        "durability": 80,
+        "power": 40,
+        "combat": 100
+      },
+      "powers": ["Fuerza sobrehumana", "Agilidad mejorada", "Escudo indestructible", "Liderazgo"],
+      "weaknesses": ["Hombre de su tiempo", "Sentido del deber extremo"],
+      "firstAppearance": 1941,
+      "rating": 4.6,
+      "image": "assets/images/characters/captain-america.jpg",
+      "biography": "Steve Rogers, un débil joven que se convierte en un supersoldado durante la Segunda Guerra Mundial.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Capit%C3%A1n_Am%C3%A9rica"
+      }
+    },
+    {
+      "id": "thor",
+      "name": "Thor",
+      "aliases": ["Dios del Trueno", "Odinson"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 75,
+        "strength": 100,
+        "speed": 85,
+        "durability": 100,
+        "power": 100,
+        "combat": 90
+      },
+      "powers": ["Control del clima", "Mjolnir", "Fuerza divina", "Longevidad"],
+      "weaknesses": ["Dependencia de Mjolnir", "Arrogancia"],
+      "firstAppearance": 1962,
+      "rating": 4.7,
+      "image": "assets/images/characters/thor.jpg",
+      "biography": "Dios nórdico del trueno que defiende la Tierra como miembro de los Vengadores.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Thor_(c%C3%B3mic)"
+      }
+    },
+    {
+      "id": "green-lantern",
+      "name": "Linterna Verde",
+      "aliases": ["Hal Jordan", "El Protector del Sector 2814"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 80,
+        "strength": 85,
+        "speed": 75,
+        "durability": 80,
+        "power": 100,
+        "combat": 70
+      },
+      "powers": ["Anillo de poder", "Creación de construcciones de luz", "Vuelo", "Campos de fuerza"],
+      "weaknesses": ["Color amarillo", "Falta de voluntad"],
+      "firstAppearance": 1959,
+      "rating": 4.3,
+      "image": "assets/images/characters/green-lantern.jpg",
+      "biography": "Hal Jordan, un piloto de pruebas elegido por un anillo de poder que le otorga habilidades increíbles.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Linterna_Verde"
+      }
+    },
+    {
+      "id": "black-widow",
+      "name": "Viuda Negra",
+      "aliases": ["Natasha Romanoff", "Agente Romanoff"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 85,
+        "strength": 15,
+        "speed": 35,
+        "durability": 25,
+        "power": 20,
+        "combat": 100
+      },
+      "powers": ["Artes marciales maestro", "Espionaje", "Tiradora experta", "Agilidad pico humano"],
+      "weaknesses": ["Sin superpoderes", "Pasado oscuro"],
+      "firstAppearance": 1964,
+      "rating": 4.2,
+      "image": "assets/images/characters/black-widow.jpg",
+      "biography": "Natasha Romanoff, una espía rusa reformada que se une a S.H.I.E.L.D. y los Vengadores.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Viuda_Negra_(c%C3%B3mic)"
+      }
+    },
+    {
+      "id": "doctor-strange",
+      "name": "Doctor Strange",
+      "aliases": ["Stephen Strange", "Hechicero Supremo"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 95,
+        "strength": 10,
+        "speed": 30,
+        "durability": 60,
+        "power": 100,
+        "combat": 60
+      },
+      "powers": ["Artes místicas", "Hechicería", "Viaje interdimensional", "Proyección astral"],
+      "weaknesses": ["Dependencia de hechizos", "Mente lógica vs magia"],
+      "firstAppearance": 1963,
+      "rating": 4.5,
+      "image": "assets/images/characters/doctor-strange.jpg",
+      "biography": "Un neurocirujano que se convierte en el Hechicero Supremo de la Tierra tras un accidente.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Doctor_Strange"
+      }
+    },
+    {
+      "id": "aquaman",
+      "name": "Aquaman",
+      "aliases": ["Arthur Curry", "Rey de la Atlántida"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 80,
+        "strength": 85,
+        "speed": 80,
+        "durability": 80,
+        "power": 75,
+        "combat": 75
+      },
+      "powers": ["Comunicación con vida marina", "Fuerza sobrehumana", "Resistencia submarina", "Tridente mágico"],
+      "weaknesses": ["Deshidratación en tierra", "Responsabilidad dual"],
+      "firstAppearance": 1941,
+      "rating": 4.1,
+      "image": "assets/images/characters/aquaman.jpg",
+      "biography": "El rey de la Atlántida que protege tanto el mundo terrestre como el acuático.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Aquaman"
+      }
+    },
+    {
+      "id": "wolverine",
+      "name": "Wolverine",
+      "aliases": ["Logan", "Lobezno"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 70,
+        "strength": 45,
+        "speed": 50,
+        "durability": 100,
+        "power": 60,
+        "combat": 100
+      },
+      "powers": ["Garras de adamantium", "Factor de curación", "Sentidos mejorados", "Longevidad"],
+      "weaknesses": ["Adamantium tóxico", "Pérdida de memoria"],
+      "firstAppearance": 1974,
+      "rating": 4.6,
+      "image": "assets/images/characters/wolverine.jpg",
+      "biography": "Un mutante con garras retráctiles y un factor de curación que lo hace casi inmortal.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Wolverine"
+      }
+    },
+    {
+      "id": "green-arrow",
+      "name": "Flecha Verde",
+      "aliases": ["Oliver Queen", "El Arquero Esmeralda"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 85,
+        "strength": 15,
+        "speed": 30,
+        "durability": 25,
+        "power": 20,
+        "combat": 90
+      },
+      "powers": ["Arquero maestro", "Artista marcial", "Rico industrial", "Flechas especializadas"],
+      "weaknesses": ["Sin superpoderes", "Ideales extremos"],
+      "firstAppearance": 1941,
+      "rating": 4.0,
+      "image": "assets/images/characters/green-arrow.jpg",
+      "biography": "Oliver Queen, un playboy millonario que se convierte en un arquero vigilante tras quedar varado en una isla.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Flecha_Verde"
+      }
+    },
+    {
+      "id": "magneto",
+      "name": "Magneto",
+      "aliases": ["Erik Lehnsherr", "Maestro del Magnetismo"],
+      "universe": "Marvel",
+      "affiliation": "Villain",
+      "powerStats": {
+        "intelligence": 90,
+        "strength": 80,
+        "speed": 40,
+        "durability": 70,
+        "power": 95,
+        "combat": 75
+      },
+      "powers": ["Manipulación magnética", "Control de metales", "Campos de fuerza", "Vuelo"],
+      "weaknesses": ["No metales", "Trauma del Holocausto"],
+      "firstAppearance": 1963,
+      "rating": 4.4,
+      "image": "assets/images/characters/magneto.jpg",
+      "biography": "Un mutante poderoso que busca la supremacía mutante tras sobrevivir al Holocausto.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Magneto_(c%C3%B3mic)"
+      }
+    },
+    {
+      "id": "catwoman",
+      "name": "Catwoman",
+      "aliases": ["Selina Kyle", "La Ladrona de Gotham"],
+      "universe": "DC",
+      "affiliation": "Anti-Hero",
+      "powerStats": {
+        "intelligence": 80,
+        "strength": 15,
+        "speed": 40,
+        "durability": 25,
+        "power": 25,
+        "combat": 85
+      },
+      "powers": ["Agilidad felina", "Ladrona experta", "Artista marcial", "Seducción"],
+      "weaknesses": ["Moralidad ambigua", "Relación con Batman"],
+      "firstAppearance": 1940,
+      "rating": 4.1,
+      "image": "assets/images/characters/catwoman.jpg",
+      "biography": "Selina Kyle, una ladrona de joyas con una fascinación por los gatos y una relación compleja con Batman.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Catwoman"
+      }
+    },
+    {
+      "id": "deadpool",
+      "name": "Deadpool",
+      "aliases": ["Wade Wilson", "El Mercenario Bocazas"],
+      "universe": "Marvel",
+      "affiliation": "Anti-Hero",
+      "powerStats": {
+        "intelligence": 70,
+        "strength": 35,
+        "speed": 30,
+        "durability": 100,
+        "power": 40,
+        "combat": 85
+      },
+      "powers": ["Factor de curación", "Inmortalidad", "Maestro armas", "Rompe la cuarta pared"],
+      "weaknesses": ["Desfiguración", "Locura", "Bromas constantes"],
+      "firstAppearance": 1991,
+      "rating": 4.5,
+      "image": "assets/images/characters/deadpool.jpg",
+      "biography": "Wade Wilson, un mercenario desfigurado con un sentido del humor negro y capacidad de regeneración.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Deadpool"
+      }
+    },
+    {
+      "id": "harley-quinn",
+      "name": "Harley Quinn",
+      "aliases": ["Harleen Quinzel", "La Arlequina"],
+      "universe": "DC",
+      "affiliation": "Villain",
+      "powerStats": {
+        "intelligence": 85,
+        "strength": 20,
+        "speed": 35,
+        "durability": 30,
+        "power": 30,
+        "combat": 75
+      },
+      "powers": ["Agilidad acrobática", "Psicóloga experta", "Resistencia al dolor", "Armas extravagantes"],
+      "weaknesses": ["Obsesión con Joker", "Inestabilidad mental"],
+      "firstAppearance": 1992,
+      "rating": 4.3,
+      "image": "assets/images/characters/harley-quinn.jpg",
+      "biography": "Ex-psiquiatra del Joker que se convierte en su compañera criminal y luego en antiheroína independiente.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Harley_Quinn"
+      }
+    },
+    {
+      "id": "loki",
+      "name": "Loki",
+      "aliases": ["Dios de las Mentiras", "Trickster"],
+      "universe": "Marvel",
+      "affiliation": "Villain",
+      "powerStats": {
+        "intelligence": 95,
+        "strength": 60,
+        "speed": 70,
+        "durability": 70,
+        "power": 85,
+        "combat": 75
+      },
+      "powers": ["Ilusiones mágicas", "Cambio de forma", "Teletransportación", "Hechicería"],
+      "weaknesses": ["Complejo de inferioridad", "Necesidad de validación"],
+      "firstAppearance": 1962,
+      "rating": 4.4,
+      "image": "assets/images/characters/loki.jpg",
+      "biography": "Dios nórdico de las mentiras y hermano adoptivo de Thor, siempre buscando el poder y la validación.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Loki_(c%C3%B3mic)"
+      }
+    },
+    {
+      "id": "black-panther",
+      "name": "Pantera Negra",
+      "aliases": ["T'Challa", "Rey de Wakanda"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 95,
+        "strength": 80,
+        "speed": 70,
+        "durability": 80,
+        "power": 60,
+        "combat": 100
+      },
+      "powers": ["Sentidos mejorados", "Traje de vibranium", "Fuerza sobrehumana", "Riqueza y tecnología"],
+      "weaknesses": ["Responsabilidad real", "Protección de Wakanda"],
+      "firstAppearance": 1966,
+      "rating": 4.5,
+      "image": "assets/images/characters/black-panther.jpg",
+      "biography": "T'Challa, rey y protector de la nación tecnológicamente avanzada de Wakanda.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Pantera_Negra_(c%C3%B3mic)"
+      }
+    },
+    {
+      "id": "storm",
+      "name": "Storm",
+      "aliases": ["Ororo Munroe", "Diosa del Clima"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 80,
+        "strength": 15,
+        "speed": 50,
+        "durability": 40,
+        "power": 95,
+        "combat": 70
+      },
+      "powers": ["Control del clima", "Vuelo", "Manipulación atmosférica", "Liderazgo"],
+      "weaknesses": ["Claustrofobia", "Emociones afectan poderes"],
+      "firstAppearance": 1975,
+      "rating": 4.3,
+      "image": "assets/images/characters/storm.jpg",
+      "biography": "Ororo Munroe, una mutante que puede controlar el clima y es miembro de los X-Men.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Storm_(c%C3%B3mic)"
+      }
+    },
+    {
+      "id": "raven",
+      "name": "Raven",
+      "aliases": ["Rachel Roth", "Hija de Trigon"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 85,
+        "strength": 25,
+        "speed": 40,
+        "durability": 60,
+        "power": 95,
+        "combat": 50
+      },
+      "powers": ["Magia oscura", "Telepatía", "Teletransportación", "Proyección de alma"],
+      "weaknesses": ["Emociones fuertes", "Herencia demoníaca"],
+      "firstAppearance": 1980,
+      "rating": 4.2,
+      "image": "assets/images/characters/raven.jpg",
+      "biography": "Hija mitad humana mitad demonio que lucha por controlar sus poderes oscuros y ayudar a los Jóvenes Titanes.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Raven_(c%C3%B3mic)"
+      }
+    },
+    {
+      "id": "star-lord",
+      "name": "Star-Lord",
+      "aliases": ["Peter Quill", "Líder de los Guardianes"],
+      "universe": "Marvel",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 80,
+        "strength": 25,
+        "speed": 35,
+        "durability": 40,
+        "power": 50,
+        "combat": 75
+      },
+      "powers": ["Pistolas elementales", "Vuelo con jet pack", "Liderazgo", "Conocimiento cósmico"],
+      "weaknesses": ["Actitud arrogante", "Problemas paternales"],
+      "firstAppearance": 1976,
+      "rating": 4.1,
+      "image": "assets/images/characters/star-lord.jpg",
+      "biography": "Peter Quill, un aventurero interestelar humano que lidera a los Guardianes de la Galaxia.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Star-Lord"
+      }
+    },
+    {
+      "id": "shazam",
+      "name": "Shazam",
+      "aliases": ["Billy Batson", "El Capitán Marvel"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 70,
+        "strength": 100,
+        "speed": 90,
+        "durability": 95,
+        "power": 95,
+        "combat": 70
+      },
+      "powers": ["Fuerza de Hércules", "Velocidad de Mercurio", "Poder de Zeus", "Sabiduría de Salomón"],
+      "weaknesses": ["Mentalidad infantil", "Magia antigua"],
+      "firstAppearance": 1939,
+      "rating": 4.3,
+      "image": "assets/images/characters/shazam.jpg",
+      "biography": "Billy Batson, un niño que se transforma en un héroe adulto al decir la palabra mágica 'Shazam'.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Shazam!"
+      }
+    },
+    {
+      "id": "doctor-doom",
+      "name": "Doctor Doom",
+      "aliases": ["Victor Von Doom", "Monarca de Latveria"],
+      "universe": "Marvel",
+      "affiliation": "Villain",
+      "powerStats": {
+        "intelligence": 100,
+        "strength": 35,
+        "speed": 30,
+        "durability": 85,
+        "power": 95,
+        "combat": 75
+      },
+      "powers": ["Tecnomagia", "Armadura avanzada", "Liderazgo", "Recursos de una nación"],
+      "weaknesses": ["Orgullo extremo", "Obsesión con Reed Richards"],
+      "firstAppearance": 1962,
+      "rating": 4.6,
+      "image": "assets/images/characters/doctor-doom.jpg",
+      "biography": "Victor Von Doom, genio científico y hechicero que gobierna Latveria con puño de hierro.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Doctor_Doom"
+      }
+    },
+    {
+      "id": "zatanna",
+      "name": "Zatanna",
+      "aliases": ["Zatanna Zatara", "La Maga"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 85,
+        "strength": 10,
+        "speed": 30,
+        "durability": 40,
+        "power": 90,
+        "combat": 50
+      },
+      "powers": ["Magia verbal", "Hechicería", "Ilusiones", "Teletransportación"],
+      "weaknesses": ["Hechizos deben hablarse al revés", "Magia requiere concentración"],
+      "firstAppearance": 1964,
+      "rating": 4.2,
+      "image": "assets/images/characters/zatanna.jpg",
+      "biography": "Una poderosa maga que lanza hechizos hablando al revés, heredera de una línea de magos.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Zatanna"
+      }
+    },
+    {
+      "id": "nightwing",
+      "name": "Nightwing",
+      "aliases": ["Dick Grayson", "El Ex-Robin"],
+      "universe": "DC",
+      "affiliation": "Hero",
+      "powerStats": {
+        "intelligence": 85,
+        "strength": 20,
+        "speed": 40,
+        "durability": 35,
+        "power": 25,
+        "combat": 95
+      },
+      "powers": ["Acróbata experto", "Artista marcial", "Liderazgo natural", "Escudo energético"],
+      "weaknesses": ["Relación con Batman", "Protección de Blüdhaven"],
+      "firstAppearance": 1984,
+      "rating": 4.4,
+      "image": "assets/images/characters/nightwing.jpg",
+      "biography": "Dick Grayson, el primer Robin que forja su propia identidad como héroe independiente en Blüdhaven.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Nightwing"
+      }
     }
   ],
-  "favorites": [
-    {
-      "id": "90b5",
-      "characterId": "wonder-woman",
-      "userId": "default-user",
-      "addedAt": "2025-11-26T19:09:12.262Z"
-    }
-  ]
+  "favorites": []
 }
