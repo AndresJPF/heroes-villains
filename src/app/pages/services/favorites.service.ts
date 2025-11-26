@@ -1,8 +1,7 @@
-// src/app/pages/services/favorites.service.ts
 import { Injectable } from '@angular/core';
 import { Favorite } from '../../models/favorites.model';
 import { CharactersService } from './characters.service';
-import { lastValueFrom } from 'rxjs'; // Importar esto
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +16,10 @@ export class FavoriteService {
   async getFavorites(): Promise<Favorite[]> {
     try {
       const response = await fetch(`${this.apiUrl}/favorites?userId=${this.userId}`);
-      if (!response.ok) throw new Error('Error fetching favorites');
+      if (!response.ok) throw new Error('Error obteniendo favoritos');
       return await response.json();
     } catch (error) {
-      console.error('Error getting favorites:', error);
+      console.error('Error obteniendo favoritos:', error);
       return [];
     }
   }
@@ -42,10 +41,10 @@ export class FavoriteService {
         body: JSON.stringify(favorite)
       });
       
-      if (!response.ok) throw new Error('Error adding favorite');
+      if (!response.ok) throw new Error('Error agregando favorito');
       return await response.json();
     } catch (error) {
-      console.error('Error adding favorite:', error);
+      console.error('Error agregando favorito:', error);
       throw error;
     }
   }
@@ -61,10 +60,10 @@ export class FavoriteService {
           method: 'DELETE'
         });
         
-        if (!response.ok) throw new Error('Error removing favorite');
+        if (!response.ok) throw new Error('Error eliminando favorito');
       }
     } catch (error) {
-      console.error('Error removing favorite:', error);
+      console.error('Error eliminando favorito:', error);
       throw error;
     }
   }
@@ -75,15 +74,13 @@ export class FavoriteService {
     return favorites.some(f => f.characterId === characterId);
   }
 
-  // Obtener favoritos con datos de personajes - CORREGIDO
+  // Obtener favoritos con datos de personajes
   async getFavoritesWithCharacters(): Promise<any[]> {
     const favorites = await this.getFavorites();
     
-    // Obtener datos completos de cada personaje usando lastValueFrom
     const favoritesWithCharacters = await Promise.all(
       favorites.map(async (favorite) => {
         try {
-          // Convertir Observable a Promise usando lastValueFrom
           const character = await lastValueFrom(
             this.charactersService.getCharacterById(favorite.characterId)
           );
@@ -92,15 +89,14 @@ export class FavoriteService {
             character: character
           };
         } catch (error) {
-          console.error(`Error loading character ${favorite.characterId}:`, error);
-          // Si falla, retorna el favorite básico
+          console.error(`Error cargando personaje ${favorite.characterId}:`, error);
           return {
             ...favorite,
             character: {
               id: favorite.characterId,
               name: 'Personaje no disponible',
-              thumbnail: { path: '', extension: '' },
-              description: 'No se pudo cargar la información del personaje'
+              image: 'https://via.placeholder.com/300x400/37474f/ffffff?text=Imagen+No+Disponible',
+              biography: 'No se pudo cargar la información del personaje'
             }
           };
         }

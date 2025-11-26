@@ -3,26 +3,34 @@
     {
       "id": "batman",
       "name": "Batman",
-      "thumbnail": {
-      "path": "assets/images/characters/batman",
-      "extension": "jpg"},
-      "aliases": ["Bruce Wayne", "The Dark Knight"],
+      "aliases": [
+        "Bruce Wayne",
+        "El Caballero de la Noche"
+      ],
       "universe": "DC",
-      "affiliation": "Hero",
+      "affiliation": "Héroe",
       "powerStats": {
         "intelligence": 100,
         "strength": 30,
         "speed": 30,
         "durability": 40,
         "power": 40,
-        "combat": 95
+        "combat": 90
       },
-      "powers": ["Detective skills", "Martial arts", "Technology", "Wealth"],
-      "weaknesses": ["Human limits", "No superpowers"],
+      "powers": [
+        "Habilidades de detective",
+        "Artes marciales",
+        "Tecnología",
+        "Riqueza"
+      ],
+      "weaknesses": [
+        "Límites humanos",
+        "Sin superpoderes"
+      ],
       "firstAppearance": 1939,
       "rating": 4.7,
       "image": "assets/images/characters/batman.jpg",
-      "biography": "Bruce Wayne, traumatizado por el asesinato de sus padres, se entrena física y mentalmente para combatir el crimen en Gotham City.",
+      "biography": "Bruce Wayne, traumatizado por el asesinato de sus padres, se entrena física y mentalmente para combatir el crimen en Ciudad Gótica.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Batman"
       }
@@ -30,22 +38,31 @@
     {
       "id": "superman",
       "name": "Superman",
-      "thumbnail": {
-      "path": "assets/images/characters/superman",
-      "extension": "jpg"},
-      "aliases": ["Clark Kent", "Man of Steel"],
+      "aliases": [
+        "Clark Kent",
+        "El Hombre de Acero"
+      ],
       "universe": "DC",
-      "affiliation": "Hero",
+      "affiliation": "Héroe",
       "powerStats": {
-        "intelligence": 90,
+        "intelligence": 95,
         "strength": 100,
         "speed": 100,
         "durability": 100,
         "power": 100,
         "combat": 85
       },
-      "powers": ["Super strength", "Flight", "Heat vision", "X-ray vision"],
-      "weaknesses": ["Kryptonite", "Magic"],
+      "powers": [
+        "Vuelo",
+        "Visión de calor",
+        "Súper fuerza",
+        "Invulnerabilidad",
+        "Súper velocidad"
+      ],
+      "weaknesses": [
+        "Kryptonita",
+        "Magia"
+      ],
       "firstAppearance": 1938,
       "rating": 4.9,
       "image": "assets/images/characters/superman.jpg",
@@ -55,122 +72,154 @@
       }
     },
     {
-      "id": "joker",
-      "name": "Joker",
-      "thumbnail": {
-      "path": "assets/images/characters/joker",
-      "extension": "jpg"},
-      "aliases": ["The Clown Prince of Crime"],
-      "universe": "DC",
-      "affiliation": "Villaino",
-      "powerStats": {
-        "intelligence": 90,
-        "strength": 15,
-        "speed": 20,
-        "durability": 30,
-        "power": 25,
-        "combat": 70
-      },
-      "powers": ["Mente criminal", "Quimico experto", "Manipulación"],
-      "weaknesses": ["Mental instability", "Obsession with Batman"],
-      "firstAppearance": 1940,
-      "rating": 4.5,
-      "image": "assets/images/characters/joker.jpg",
-      "biography": "Un criminal psicópata con un sentido del humor retorcido, obsesionado con Batman.",
-      "links": {
-        "wiki": "https://es.wikipedia.org/wiki/Joker_(personaje)"
-      }
-    },
-    {
       "id": "spiderman",
       "name": "Spider-Man",
-      "thumbnail": {
-      "path": "assets/images/characters/Spiderman",
-      "extension": "jpg"},
-      "aliases": ["Peter Parker", "Spidey"],
+      "aliases": [
+        "Peter Parker",
+        "El Hombre Araña"
+      ],
       "universe": "Marvel",
-      "affiliation": "Hero",
+      "affiliation": "Héroe",
       "powerStats": {
         "intelligence": 90,
         "strength": 55,
         "speed": 65,
-        "durability": 60,
-        "power": 70,
+        "durability": 70,
+        "power": 75,
         "combat": 85
       },
-      "powers": ["Trepar paredes", "Sentido aracnido", "Super fuerza", "Disparar telarañas"],
-      "weaknesses": ["Responsibility", "Personal life conflicts"],
+      "powers": [
+        "Sentido arácnido",
+        "Trepa muros",
+        "Lanzatelarañas",
+        "Agilidad sobrehumana"
+      ],
+      "weaknesses": [
+        "Responsabilidad",
+        "Ser queridos en peligro"
+      ],
       "firstAppearance": 1962,
       "rating": 4.6,
       "image": "assets/images/characters/spiderman.jpg",
-      "biography": "Peter Parker, un adolescente que obtiene poderes arácnidos después de ser picado por una araña radiactiva.",
+      "biography": "Peter Parker, un estudiante mordido por una araña radiactiva que obtiene habilidades arácnidas.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Spider-Man"
       }
     },
     {
+      "id": "joker",
+      "name": "Joker",
+      "aliases": [
+        "El Príncipe Payaso del Crimen"
+      ],
+      "universe": "DC",
+      "affiliation": "Villano",
+      "powerStats": {
+        "intelligence": 100,
+        "strength": 10,
+        "speed": 20,
+        "durability": 30,
+        "power": 40,
+        "combat": 60
+      },
+      "powers": [
+        "Manipulación psicológica",
+        "Estrategia criminal",
+        "Química"
+      ],
+      "weaknesses": [
+        "Impredecibilidad",
+        "Obsesión con Batman"
+      ],
+      "firstAppearance": 1940,
+      "rating": 4.8,
+      "image": "assets/images/characters/joker.jpg",
+      "biography": "Un criminal psicópata con una apariencia de payaso que siembra el caos en Ciudad Gótica.",
+      "links": {
+        "wiki": "https://es.wikipedia.org/wiki/Joker_(c%C3%B3mic)"
+      }
+    },
+    {
       "id": "thanos",
       "name": "Thanos",
-      "thumbnail": {
-      "path": "assets/images/characters/thanos",
-      "extension": "jpg"},
-      "aliases": ["The Mad Titan"],
+      "aliases": [
+        "El Titán Loco"
+      ],
       "universe": "Marvel",
-      "affiliation": "Villain",
+      "affiliation": "Villano",
       "powerStats": {
-        "intelligence": 95,
-        "strength": 95,
+        "intelligence": 90,
+        "strength": 100,
         "speed": 50,
-        "durability": 90,
+        "durability": 100,
         "power": 100,
-        "combat": 85
+        "combat": 80
       },
-      "powers": ["Super fuerza", "Proyección de energía", "Teletransportación", "Inmortalidad"],
-      "weaknesses": ["Arrogante", "Apego emocional"],
+      "powers": [
+        "Fuerza sobrehumana",
+        "Manipulación de energía",
+        "Inmortalidad",
+        "Inteligencia estratégica"
+      ],
+      "weaknesses": [
+        "Arrogancia",
+        "Obsesión con la muerte"
+      ],
       "firstAppearance": 1973,
-      "rating": 4.8,
+      "rating": 4.7,
       "image": "assets/images/characters/thanos.jpg",
-      "biography": "Un poderoso titán obsesionado con el concepto de equilibrio en el universo.",
+      "biography": "Un poderoso titán obsesionado con el concepto de equilibrar el universo mediante la aniquilación.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Thanos"
       }
     },
     {
       "id": "wonder-woman",
-      "name": "Wonder Woman",
-      "thumbnail": {
-      "path": "assets/images/characters/wonder-woman",
-      "extension": "jpg"},
-      "aliases": ["Diana Prince", "Amazon Princess"],
+      "name": "Mujer Maravilla",
+      "aliases": [
+        "Diana Prince",
+        "Princesa de Themyscira"
+      ],
       "universe": "DC",
-      "affiliation": "Hero",
+      "affiliation": "Héroe",
       "powerStats": {
         "intelligence": 88,
-        "strength": 90,
-        "speed": 85,
-        "durability": 95,
-        "power": 90,
+        "strength": 100,
+        "speed": 90,
+        "durability": 100,
+        "power": 95,
         "combat": 95
       },
-      "powers": ["Super strength", "Flight", "Lasso of Truth", "Combat skills"],
-      "weaknesses": ["Piercing weapons", "Being bound by a man"],
+      "powers": [
+        "Fuerza sobrehumana",
+        "Vuelo",
+        "Brazaletes indestructibles",
+        "Lazo de la verdad"
+      ],
+      "weaknesses": [
+        "Ser atada por un hombre"
+      ],
       "firstAppearance": 1941,
       "rating": 4.6,
       "image": "assets/images/characters/wonder-woman.jpg",
-      "biography": "Princesa amazona y superheroína que lucha por la justicia y la paz.",
+      "biography": "Princesa amazona y diosa guerrera que defiende la justicia y la paz en el mundo de los hombres.",
       "links": {
-        "wiki": "https://es.wikipedia.org/wiki/Wonder_Woman"
+        "wiki": "https://es.wikipedia.org/wiki/Mujer_Maravilla"
       }
     },
     {
       "id": "iron-man",
       "name": "Iron Man",
       "thumbnail": {
-      "path": "assets/images/characters/iron-man",
-      "extension": "jpg"},
-      "aliases": ["Tony Stark", "The Invincible Iron Man"],
+        "path": "assets/images/characters/iron-man",
+        "extension": "jpg"
+      },
+      "aliases": [
+        "Tony Stark",
+        "The Invincible Iron Man"
+      ],
       "universe": "Marvel",
-      "affiliation": "Hero",
+      "affiliation": "Héroe",
       "powerStats": {
         "intelligence": 100,
         "strength": 85,
@@ -179,8 +228,17 @@
         "power": 90,
         "combat": 65
       },
-      "powers": ["Powered armor suit", "Genius intellect", "Flight", "Weapons systems"],
-      "weaknesses": ["Dependence on armor", "Heart condition", "Arrogance"],
+      "powers": [
+        "Powered armor suit",
+        "Genius intellect",
+        "Flight",
+        "Weapons systems"
+      ],
+      "weaknesses": [
+        "Dependence on armor",
+        "Heart condition",
+        "Arrogance"
+      ],
       "firstAppearance": 1963,
       "rating": 4.7,
       "image": "assets/images/characters/iron-man.jpg",
@@ -189,5 +247,6 @@
         "wiki": "https://es.wikipedia.org/wiki/Iron_Man"
       }
     }
-  ]
+  ],
+  "favorites": []
 }
