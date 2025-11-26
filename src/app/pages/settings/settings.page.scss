@@ -1,0 +1,31 @@
+ion-toggle {
+  // Color cuando está activo (tema oscuro)
+  &[aria-checked="true"] {
+    --background: var(--ion-color-medium);
+    --background-checked: var(--ion-color-primary);
+    
+    --handle-background: var(--ion-color-light);
+    --handle-background-checked: var(--ion-color-light);
+  }
+  
+  // Color cuando está inactivo (tema claro)
+  &[aria-checked="false"] {
+    --background: var(--ion-color-medium);
+    --background-checked: var(--ion-color-medium);
+    
+    --handle-background: var(--ion-color-light);
+    --handle-background-checked: var(--ion-color-light);
+  }
+}
+
+// Opcional: Estilos para mejorar la apariencia
+.settings-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 60px;
+}
+
+.theme-toggle {
+  --border-radius: 12px;
+  margin: 8px 0;
+}

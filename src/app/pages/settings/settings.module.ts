@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
 
-@Component({
-  selector: 'app-settings',
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
-  standalone: true,
-  imports: [CommonModule, IonicModule]
+import { SettingsPageRoutingModule } from './settings-routing.module';
+
+import { SettingsPage } from './settings.page';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    SettingsPageRoutingModule,
+    SettingsPage
+  ],
+  declarations: []
 })
-export class SettingsPage {
-  constructor() {}
-}
+export class SettingsPageModule {}

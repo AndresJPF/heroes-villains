@@ -12,7 +12,6 @@
       fill="clear" 
       class="favorite-btn"
       (click)="onFavoriteClick($event)"
-      [attr.aria-label]="isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'"
     >
       <ion-icon 
         [name]="isFavorite ? 'heart' : 'heart-outline'" 
@@ -65,7 +64,7 @@
       {{ character.biography || 'Sin biografía disponible' }}
     </p>
     
-    <!--Sección de poderes -->
+    <!-- MEJORADO: Sección de poderes minimalista -->
     <div class="powers-minimalist" *ngIf="character.powers && character.powers.length > 0">
       <div class="powers-tags">
         <span class="power-tag" *ngFor="let power of character.powers.slice(0, 2)">
