@@ -18,29 +18,31 @@ export class CharacterCardComponent {
   @Output() cardClicked = new EventEmitter<Character>();
 
   // Métodos de utilidad
-  getAffiliationColor(affiliation: string): string {
-    const colors: { [key: string]: string } = {
-      'Heroes': 'primary',
-      'Villains': 'danger', 
-      'Anti-Heroes': 'warning',
-      'Neutral': 'medium',
-      'Hero': 'primary',
-      'Villain': 'danger'
-    };
-    return colors[affiliation] || 'medium';
-  }
+ getAffiliationColor(affiliation: string): string {
+  const colors: { [key: string]: string } = {
+    'Heroes': 'primary',
+    'Villanos': 'danger', 
+    'Anti-Heroes': 'warning',
+    'Neutral': 'medium',
+    'Hero': 'primary',
+    'Villano': 'danger',
+    'Anti-Hero': 'warning'
+  };
+  return colors[affiliation] || 'medium';
+}
 
-  getAffiliationIcon(affiliation: string): string {
-    const icons: { [key: string]: string } = {
-      'Heroes': 'heart',
-      'Villains': 'skull',
-      'Anti-Heroes': 'warning', 
-      'Neutral': 'help',
-      'Hero': 'heart',
-      'Villain': 'skull'
-    };
-    return icons[affiliation] || 'help';
-  }
+getAffiliationIcon(affiliation: string): string {
+  const icons: { [key: string]: string } = {
+    'Heroes': 'heart',
+    'Villanos': 'skull',
+    'Anti-Heroes': 'warning', 
+    'Neutral': 'help',
+    'Hero': 'heart',
+    'Villano': 'skull',
+    'Anti-Hero': 'warning'
+  };
+  return icons[affiliation] || 'help';
+}
 
   getPowerLevelColor(power: number): string {
     if (power >= 80) return 'success';
@@ -77,22 +79,20 @@ export class CharacterCardComponent {
   }
 
   onFavoriteClick(event: Event) {
-  event.stopPropagation(); // Detener propagación
-  event.preventDefault();  // Prevenir comportamiento por defecto
-  event.stopImmediatePropagation(); // ¡NUEVO: Detener propagación inmediata!
-  
-  console.log('Favorite clicked for:', this.character.name);
-  this.favoriteToggled.emit(this.character.id);
-}
+    // SOLO detener la propagación para que no active el click de la tarjeta
+    event.stopPropagation();
+    
+    console.log('Favorite clicked for:', this.character.name);
+    this.favoriteToggled.emit(this.character.id);
+  }
 
   onCardClick() {
     console.log('Card clicked for:', this.character.name);
     this.cardClicked.emit(this.character);
-}
-
+  }
 
   getStarRating(rating: number): { filled: number, half: boolean } {
-    const filled = Math.floor(rating / 2); // Convertir 0-10 a 0-5 estrellas
+    const filled = Math.floor(rating / 2);
     const decimal = (rating / 2) - filled;
     const half = decimal >= 0.5;
     

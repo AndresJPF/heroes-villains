@@ -12,11 +12,11 @@
       fill="clear" 
       class="favorite-btn"
       (click)="onFavoriteClick($event)"
-      [attr.aria-label]="isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'"
     >
       <ion-icon 
         [name]="isFavorite ? 'heart' : 'heart-outline'" 
         [color]="isFavorite ? 'danger' : 'light'"
+        class="favorite-icon"
       ></ion-icon>
     </ion-button>
 
@@ -26,19 +26,23 @@
     </div>
 
     <!-- Rating -->
-    <div class="rating-badge" *ngIf="character.rating">
-      <ion-icon name="star"></ion-icon>
-      {{ character.rating | number:'1.1-1' }}
-    </div>
+    @if (character.rating) {
+      <div class="rating-badge">
+        <ion-icon name="star"></ion-icon>
+        {{ character.rating | number:'1.1-1' }}
+      </div>
+    }
   </div>
 
   <ion-card-header>
     <ion-card-title class="character-name">{{ character.name }}</ion-card-title>
     
     <!-- Aliases -->
-    <div class="aliases" *ngIf="character.aliases && character.aliases.length > 0">
-      <small>"{{ character.aliases[0] }}"</small>
-    </div>
+    @if (character.aliases && character.aliases.length > 0) {
+      <div class="aliases">
+        <small>"{{ character.aliases[0] }}"</small>
+      </div>
+    }
 
     <ion-card-subtitle>
       <!-- Chip de afiliación -->
@@ -52,10 +56,12 @@
       </ion-chip>
 
       <!-- Primera aparición -->
-      <ion-chip color="medium" outline *ngIf="character.firstAppearance">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label>{{ character.firstAppearance }}</ion-label>
-      </ion-chip>
+      @if (character.firstAppearance) {
+        <ion-chip color="medium" outline>
+          <ion-icon name="calendar"></ion-icon>
+          <ion-label>{{ character.firstAppearance }}</ion-label>
+        </ion-chip>
+      }
     </ion-card-subtitle>
   </ion-card-header>
 
@@ -65,52 +71,62 @@
       {{ character.biography || 'Sin biografía disponible' }}
     </p>
     
-    <!--Sección de poderes -->
-    <div class="powers-minimalist" *ngIf="character.powers && character.powers.length > 0">
-      <div class="powers-tags">
-        <span class="power-tag" *ngFor="let power of character.powers.slice(0, 2)">
-          {{ power }}
-        </span>
-        <span class="power-more" *ngIf="character.powers.length > 2">
-          +{{ character.powers.length - 2 }}
-        </span>
+    <!-- Sección de poderes minimalista -->
+    @if (character.powers && character.powers.length > 0) {
+      <div class="powers-minimalist">
+        <div class="powers-tags">
+          @for (power of character.powers.slice(0, 2); track power) {
+            <span class="power-tag">
+              {{ power }}
+            </span>
+          }
+          @if (character.powers.length > 2) {
+            <span class="power-more">
+              +{{ character.powers.length - 2 }}
+            </span>
+          }
+        </div>
       </div>
-    </div>
+    }
 
     <!-- Estadísticas de poder rápidas -->
-    <div class="quick-stats" *ngIf="character.powerStats">
-      <div class="stat-row">
-        <div class="stat-item">
-          <small>Fuerza</small>
-          <ion-badge [color]="getStatColor(character.powerStats.strength)">
-            {{ character.powerStats.strength }}
-          </ion-badge>
-        </div>
-        <div class="stat-item">
-          <small>Velocidad</small>
-          <ion-badge [color]="getStatColor(character.powerStats.speed)">
-            {{ character.powerStats.speed }}
-          </ion-badge>
-        </div>
-        <div class="stat-item">
-          <small>Inteligencia</small>
-          <ion-badge [color]="getStatColor(character.powerStats.intelligence)">
-            {{ character.powerStats.intelligence }}
-          </ion-badge>
+    @if (character.powerStats) {
+      <div class="quick-stats">
+        <div class="stat-row">
+          <div class="stat-item">
+            <small>Fuerza</small>
+            <ion-badge [color]="getStatColor(character.powerStats.strength)">
+              {{ character.powerStats.strength }}
+            </ion-badge>
+          </div>
+          <div class="stat-item">
+            <small>Velocidad</small>
+            <ion-badge [color]="getStatColor(character.powerStats.speed)">
+              {{ character.powerStats.speed }}
+            </ion-badge>
+          </div>
+          <div class="stat-item">
+            <small>Inteligencia</small>
+            <ion-badge [color]="getStatColor(character.powerStats.intelligence)">
+              {{ character.powerStats.intelligence }}
+            </ion-badge>
+          </div>
         </div>
       </div>
-    </div>
+    }
 
     <!-- Nivel de poder general -->
-    <div class="power-summary" *ngIf="character.powerStats">
-      <div class="power-level">
-        <small>Poder Total</small>
-        <ion-progress-bar 
-          [color]="getPowerLevelColor(getPowerLevel(character.powerStats))"
-          [value]="getPowerLevel(character.powerStats) / 100"
-        ></ion-progress-bar>
-        <span class="power-value">{{ getPowerLevel(character.powerStats) }}%</span>
+    @if (character.powerStats) {
+      <div class="power-summary">
+        <div class="power-level">
+          <small>Poder Total</small>
+          <ion-progress-bar 
+            [color]="getPowerLevelColor(getPowerLevel(character.powerStats))"
+            [value]="getPowerLevel(character.powerStats) / 100"
+          ></ion-progress-bar>
+          <span class="power-value">{{ getPowerLevel(character.powerStats) }}%</span>
+        </div>
       </div>
-    </div>
+    }
   </ion-card-content>
 </ion-card>

@@ -1,0 +1,20 @@
+body.light {
+  --ion-background-color: #f0f2f5; 
+  --ion-text-color: #1c1e21;       
+  --ion-card-background: #ffffff;   
+  --ion-card-shadow: rgba(0, 0, 0, 0.1);
+  --ion-card-shadow-hover: rgba(0, 0, 0, 0.15);
+  --ion-border-color: #dddfe2;      
+  --ion-color-light: #f0f2f5;       
+}
+
+/* Tema oscuro */
+body.dark {
+  --ion-background-color: #18191a;  
+  --ion-text-color: #e4e6eb;        
+  --ion-card-background: #242526;   
+  --ion-card-shadow: rgba(0, 0, 0, 0.3);
+  --ion-card-shadow-hover: rgba(0, 0, 0, 0.4);
+  --ion-border-color: #3a3b3c;      
+  --ion-color-light: #242526;       
+}

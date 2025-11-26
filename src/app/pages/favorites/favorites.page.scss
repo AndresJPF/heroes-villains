@@ -1,65 +1,256 @@
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-  
-  ion-spinner {
-    margin-bottom: 16px;
-  }
-  
-  p {
-    color: var(--ion-color-medium);
-    margin: 0;
+.character-card {
+  margin: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: fit-content;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 }
 
-.empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 70vh;
-  text-align: center;
-  padding: 20px;
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: var(--ion-color-light);
+
+  .character-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  // Botón
+  .favorite-btn {
+  position: absolute;
+  top: 16px !important;
+  right: 16px !important;
+  --background: rgba(0, 0, 0, 0.7) !important;
+  --border-radius: 50% !important;
+  width: 56px !important; // ← Muy grande
+  height: 56px !important; // ← Muy grande
+  z-index: 100 !important;
+  --box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: auto !important;
+  min-height: auto !important;
   
   ion-icon {
-    font-size: 64px;
-    color: var(--ion-color-medium);
-    margin-bottom: 16px;
-  }
-  
-  h3 {
-    margin: 0 0 8px 0;
-    color: var(--ion-color-dark);
-    font-size: 1.2em;
-  }
-  
-  p {
-    margin: 0 0 20px 0;
-    color: var(--ion-color-medium);
-    line-height: 1.4;
+    font-size: 3rem !important; // ← Enorme
+    width: 44px !important;
+    height: 44px !important;
+    color: white !important;
+    
+    &.favorited {
+      color: #ff2a4f !important;
+    }
   }
 }
 
-.favorites-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-  padding: 16px;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    padding: 12px;
+  .universe-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: var(--ion-color-primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 500;
+    z-index: 10;
+  }
+
+  .rating-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(255, 193, 7, 0.9);
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    z-index: 10;
+    
+    ion-icon {
+      font-size: 10px;
+    }
   }
 }
 
-.character-detail-modal {
-  --height: 80%;
-  --border-radius: 16px 16px 0 0;
+// Animación de pulso para el corazón
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Resto de tus estilos existentes...
+.character-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.aliases {
+  margin-bottom: 8px;
   
-  &::part(content) {
-    border-radius: 16px 16px 0 0;
+  small {
+    color: var(--ion-color-medium);
+    font-style: italic;
+  }
+}
+
+.affiliation-chip {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.biography {
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: var(--ion-color-medium);
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.powers-minimalist {
+  margin: 12px 0;
+  
+  .powers-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    
+    .power-tag {
+      padding: 6px 12px;
+      background: transparent;
+      border: 1.5px solid var(--ion-color-primary);
+      border-radius: 16px;
+      color: var(--ion-color-primary);
+      font-size: 0.8em;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    
+    .power-more {
+      padding: 4px 8px;
+      color: var(--ion-color-medium);
+      font-size: 0.8em;
+      font-style: italic;
+    }
+  }
+}
+
+.quick-stats {
+  margin: 12px 0;
+
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .stat-item {
+    text-align: center;
+    flex: 1;
+
+    small {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ion-color-medium);
+      font-size: 0.75em;
+    }
+
+    ion-badge {
+      font-size: 0.8em;
+      width: 100%;
+    }
+  }
+}
+
+.power-summary {
+  margin-top: 8px;
+
+  .power-level {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    small {
+      flex: 0 0 auto;
+      color: var(--ion-color-medium);
+      font-size: 0.8em;
+    }
+
+    ion-progress-bar {
+      flex: 1;
+    }
+
+    .power-value {
+      flex: 0 0 auto;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--ion-color-dark);
+      min-width: 35px;
+      text-align: right;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .card-image {
+    height: 180px;
+  }
+  
+  .character-name {
+    font-size: 1em;
+  }
+
+  .quick-stats .stat-row {
+    gap: 4px;
+  }
+  
+  .powers-minimalist .powers-tags {
+    gap: 6px;
+    
+    .power-tag {
+      padding: 5px 10px;
+      font-size: 0.75em;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .card-image {
+    height: 160px;
+  }
+  
+  .powers-minimalist .powers-tags {
+    gap: 4px;
+    
+    .power-tag {
+      padding: 4px 8px;
+      font-size: 0.7em;
+    }
   }
 }

@@ -5,20 +5,9 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  {
-    path: 'explore',
-    loadComponent: () => import('./pages/explore/explore.page').then(m => m.ExplorePage)
-  },
-  {
-    path: 'favorites',
-    loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritesPageModule)
-  },
-  // {
-  //   path: 'settings',
-  //   loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
-  // }
+  }
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

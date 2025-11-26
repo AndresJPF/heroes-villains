@@ -15,10 +15,10 @@ const routes: Routes = [
         path: 'favorites',
         loadChildren: () => import('../pages/favorites/favorites.module').then(m => m.FavoritesPageModule)
       },
-      // {
-      //   path: 'settings',
-      //   loadChildren: () => import('../pages/settings/settings.module').then(m => m.SettingsPageModule)
-      // },
+      {
+        path: 'settings', // ← DESCOMENTA ESTA LÍNEA
+        loadChildren: () => import('../pages/settings/settings.module').then(m => m.SettingsPageModule)
+      },
       {
         path: '',
         redirectTo: '/tabs/explore',
@@ -35,5 +35,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class TabsPageRoutingModule {}
