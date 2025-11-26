@@ -1,0 +1,194 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()" fill="clear" color="light">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ character.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFavorite($event)" fill="clear" color="light">
+        <ion-icon 
+          [name]="isFavorite ? 'heart' : 'heart-outline'" 
+          slot="icon-only"
+        ></ion-icon>
+      </ion-button>
+      <ion-button (click)="shareCharacter($event)" fill="clear" color="light" *ngIf="character">
+        <ion-icon name="share-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <!-- Handle para arrastrar -->
+  <div class="modal-handle">
+    <div class="handle-bar"></div>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="modal-content" scrollY="true">
+  <div class="character-detail">
+    
+    <!-- Hero Image -->
+    <div class="hero-section">
+      <div class="image-container">
+        <img 
+          [src]="character.image" 
+          [alt]="character.name"
+          class="character-image"
+          (error)="character.image = 'https://via.placeholder.com/400x500/37474f/ffffff?text=Imagen+No+Disponible'"
+        />
+        <div class="image-overlay">
+          <ion-badge class="universe-badge" color="primary">
+            {{ character.universe }}
+          </ion-badge>
+          <ion-badge class="rating-badge" color="warning">
+            <ion-icon name="star"></ion-icon>
+            {{ character.rating | number:'1.1-1' }}
+          </ion-badge>
+        </div>
+      </div>
+    </div>
+
+    <!-- Información básica -->
+    <ion-card class="info-card">
+      <ion-card-header>
+        <ion-card-title class="character-name">{{ character.name }}</ion-card-title>
+        <ion-card-subtitle>
+          <ion-chip [color]="getAffiliationColor(character.affiliation)" outline>
+            <ion-icon [name]="getAffiliationIcon(character.affiliation)"></ion-icon>
+            <ion-label>{{ character.affiliation }}</ion-label>
+          </ion-chip>
+          <ion-chip color="medium" outline *ngIf="character.firstAppearance">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>{{ character.firstAppearance }}</ion-label>
+          </ion-chip>
+        </ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Aliases -->
+        <div class="aliases-section" *ngIf="character.aliases && character.aliases.length > 0">
+          <h3>También conocido como:</h3>
+          <div class="aliases-list">
+            <ion-chip *ngFor="let alias of character.aliases" color="primary" outline>
+              <ion-label>"{{ alias }}"</ion-label>
+            </ion-chip>
+          </div>
+        </div>
+
+        <!-- Biografía -->
+        <div class="biography-section" *ngIf="character.biography">
+          <h3>Biografía</h3>
+          <p class="biography-text">{{ character.biography }}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Power Stats Section -->
+    <ion-card class="stats-card" *ngIf="character.powerStats && powerStatsArray.length > 0">
+      <ion-card-header>
+        <ion-card-title>Estadísticas de Poder</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="stats-grid">
+          <div class="stat-item" *ngFor="let stat of powerStatsArray">
+            <div class="stat-header">
+              <span class="stat-label">{{ stat.label }}</span>
+              <span class="stat-value">{{ stat.value }}/100</span>
+            </div>
+            <ion-progress-bar 
+              [value]="stat.value / 100" 
+              [color]="getStatColor(stat.value)"
+            ></ion-progress-bar>
+          </div>
+        </div>
+
+        <!-- Overall Power Level -->
+        <div class="overall-power" *ngIf="character.powerStats">
+          <div class="power-summary">
+            <span class="power-label">Nivel de Poder General</span>
+            <div class="power-display">
+              <ion-progress-bar 
+                [value]="overallPowerLevel / 100" 
+                [color]="getPowerLevelColor(overallPowerLevel)"
+              ></ion-progress-bar>
+              <span class="power-percentage">{{ overallPowerLevel }}%</span>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Powers Section -->
+    <ion-card class="powers-card" *ngIf="character.powers && character.powers.length > 0">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="flash" class="section-icon"></ion-icon>
+          Poderes y Habilidades
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="powers-minimalist">
+          <div class="powers-tags">
+            <span class="power-tag" *ngFor="let power of character.powers">
+              {{ power }}
+            </span>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Weaknesses Section -->
+    <ion-card class="weaknesses-card" *ngIf="character.weaknesses && character.weaknesses.length > 0">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="warning" class="section-icon"></ion-icon>
+          Debilidades
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="weaknesses-list">
+          <ion-item *ngFor="let weakness of character.weaknesses">
+            <ion-icon name="alert-circle" slot="start" color="danger"></ion-icon>
+            <ion-label>{{ weakness }}</ion-label>
+          </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- External Links -->
+    <ion-card class="links-card" *ngIf="character.links && (character.links.wiki || character.links.comic)">
+      <ion-card-header>
+        <ion-card-title>Enlaces Externos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item 
+            button 
+            (click)="openExternalLink(character.links!.wiki!)" 
+            *ngIf="character.links!.wiki"
+          >
+            <ion-icon name="library" slot="start" color="primary"></ion-icon>
+            <ion-label>Wiki Oficial</ion-label>
+          </ion-item>
+          <ion-item 
+            button 
+            (click)="openExternalLink(character.links!.comic!)" 
+            *ngIf="character.links!.comic"
+          >
+            <ion-icon name="book" slot="start" color="secondary"></ion-icon>
+            <ion-label>Cómic Original</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Instrucción para cerrar -->
+    <div class="close-hint">
+      <ion-text color="medium">
+        <small>Desliza hacia abajo o toca fuera para cerrar</small>
+      </ion-text>
+    </div>
+
+  </div>
+</ion-content>

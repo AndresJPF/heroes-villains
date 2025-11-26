@@ -2,7 +2,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-
+import { Character } from '../../models/character.interface';
 
 @Component({
   selector: 'app-character-card',
@@ -12,10 +12,10 @@ import { IonicModule } from '@ionic/angular';
   imports: [CommonModule, IonicModule]
 })
 export class CharacterCardComponent {
-  @Input() character!: any;
+  @Input() character!: Character;
   @Input() isFavorite: boolean = false;
   @Output() favoriteToggled = new EventEmitter<string>();
-  @Output() cardClicked = new EventEmitter<string>();
+  @Output() cardClicked = new EventEmitter<Character>();
 
   // Métodos de utilidad
   getAffiliationColor(affiliation: string): string {
@@ -73,23 +73,29 @@ export class CharacterCardComponent {
   }
 
   onImageError(event: any) {
-  event.target.src = 'https://via.placeholder.com/300x400/37474f/ffffff?text=Character+Image';
-  
-}
-  onFavoriteClick(event: Event) {
-    event.stopPropagation();
-    this.favoriteToggled.emit(this.character.id);
+    event.target.src = 'https://via.placeholder.com/300x400/37474f/ffffff?text=Character+Image';
   }
+
+  onFavoriteClick(event: Event) {
+  event.stopPropagation(); // Detener propagación
+  event.preventDefault();  // Prevenir comportamiento por defecto
+  event.stopImmediatePropagation(); // ¡NUEVO: Detener propagación inmediata!
+  
+  console.log('Favorite clicked for:', this.character.name);
+  this.favoriteToggled.emit(this.character.id);
+}
 
   onCardClick() {
-    this.cardClicked.emit(this.character.id);
-  }
+    console.log('Card clicked for:', this.character.name);
+    this.cardClicked.emit(this.character);
+}
+
 
   getStarRating(rating: number): { filled: number, half: boolean } {
-  const filled = Math.floor(rating / 2); // Convertir 0-10 a 0-5 estrellas
-  const decimal = (rating / 2) - filled;
-  const half = decimal >= 0.5;
-  
-  return { filled, half };
-}
+    const filled = Math.floor(rating / 2); // Convertir 0-10 a 0-5 estrellas
+    const decimal = (rating / 2) - filled;
+    const half = decimal >= 0.5;
+    
+    return { filled, half };
+  }
 }

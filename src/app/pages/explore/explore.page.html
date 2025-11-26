@@ -1,133 +1,132 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Explorar</ion-title>
-    
-    <ion-buttons slot="end">
-      <ion-button (click)="toggleFilters()">
-        <ion-icon 
-          [name]="showFilters ? 'filter' : 'filter-outline'" 
-          slot="icon-only">
-        </ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <ion-title>Explorar Heroes y Villanos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Explorar</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <!-- Barra de búsqueda -->
-  <div class="search-container">
+  <!-- Search Bar -->
+  <div class="search-section">
     <ion-searchbar
       [(ngModel)]="searchQuery"
       (ionInput)="onSearchInput()"
-      placeholder="Buscar por nombre o alias..."
+      placeholder="Buscar héroes y villanos..."
       animated
-      debounce="500">
-    </ion-searchbar>
+      clear-icon="close-circle"
+    ></ion-searchbar>
   </div>
 
-  <!-- Filtros -->
-  <div class="filters-section" *ngIf="showFilters">
-    <div class="filter-row">
-      <ion-select 
-        label="Universo" 
-        [(ngModel)]="selectedUniverse"
-        (ionChange)="onFilterChange()">
-        <ion-select-option value="all">Todos</ion-select-option>
-        <ion-select-option 
-          *ngFor="let universe of universes" 
-          [value]="universe">
-          {{ universe }}
-        </ion-select-option>
-      </ion-select>
-
-      <ion-select 
-        label="Afiliación" 
-        [(ngModel)]="selectedAffiliation"
-        (ionChange)="onFilterChange()">
-        <ion-select-option value="all">Todas</ion-select-option>
-        <ion-select-option 
-          *ngFor="let affiliation of affiliations" 
-          [value]="affiliation">
-          {{ affiliation }}
-        </ion-select-option>
-      </ion-select>
-    </div>
-
-    <div class="filter-row">
-      <ion-select 
-        label="Ordenar" 
-        [(ngModel)]="sortBy"
-        (ionChange)="onSortChange()">
-        <ion-select-option value="name-asc">Nombre A-Z</ion-select-option>
-        <ion-select-option value="name-desc">Nombre Z-A</ion-select-option>
-        <ion-select-option value="rating-desc">Rating ↑</ion-select-option>
-        <ion-select-option value="rating-asc">Rating ↓</ion-select-option>
-      </ion-select>
-
+  <!-- Filters & Results Info -->
+  <div class="controls-section">
+    <div class="results-info">
+      <span class="results-count">{{ resultsCount }} resultado{{ resultsCount !== 1 ? 's' : '' }}</span>
+      
       <ion-button 
-        *ngIf="hasActiveFilters"
-        fill="outline" 
-        color="medium"
-        (click)="clearFilters()">
-        Limpiar
+        fill="clear" 
+        size="small" 
+        (click)="toggleFilters()"
+        class="filter-toggle"
+      >
+        <ion-icon name="filter" slot="start"></ion-icon>
+        Filtros
       </ion-button>
     </div>
+
+    <!-- Expanded Filters -->
+    <div class="expanded-filters" *ngIf="showFilters">
+      <div class="filter-row">
+        <ion-item>
+          <ion-select 
+            [(ngModel)]="selectedUniverse" 
+            (ionChange)="onFilterChange()"
+            label="Universo"
+            interface="popover"
+          >
+            <ion-select-option value="all">Todos los universos</ion-select-option>
+            <ion-select-option *ngFor="let universe of universes" [value]="universe">
+              {{ universe }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-select 
+            [(ngModel)]="selectedAffiliation" 
+            (ionChange)="onFilterChange()"
+            label="Alineación"
+            interface="popover"
+          >
+            <ion-select-option value="all">Todas las alineaciones</ion-select-option>
+            <ion-select-option *ngFor="let affiliation of affiliations" [value]="affiliation">
+              {{ affiliation }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+      <div class="filter-row">
+        <ion-item>
+          <ion-select 
+            [(ngModel)]="sortBy" 
+            (ionChange)="onSortChange()"
+            label="Ordenar por"
+            interface="popover"
+          >
+            <ion-select-option value="name-asc">Nombre (A-Z)</ion-select-option>
+            <ion-select-option value="name-desc">Nombre (Z-A)</ion-select-option>
+            <ion-select-option value="rating-desc">Rating (Mayor a menor)</ion-select-option>
+            <ion-select-option value="rating-asc">Rating (Menor a mayor)</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-button 
+          fill="outline" 
+          size="small" 
+          (click)="clearFilters()"
+          *ngIf="hasActiveFilters"
+          class="clear-filters"
+        >
+          <ion-icon name="close" slot="start"></ion-icon>
+          Limpiar
+        </ion-button>
+      </div>
+    </div>
   </div>
 
-  <!-- Información de resultados -->
-  <div class="results-info" *ngIf="!isLoading">
-    {{ resultsCount }} {{ resultsCount === 1 ? 'resultado' : 'resultados' }}
-    <span *ngIf="hasActiveFilters">(filtrados)</span>
-  </div>
-
-  <!-- Estados -->
-  <div *ngIf="isLoading" class="loading-container">
+  <!-- Loading State -->
+  <div class="loading-container" *ngIf="isLoading">
     <ion-spinner></ion-spinner>
     <p>Cargando personajes...</p>
   </div>
 
-  <div *ngIf="isSearching" class="loading-container">
+  <!-- Search Loading -->
+  <div class="search-loading" *ngIf="isSearching && !isLoading">
     <ion-spinner></ion-spinner>
     <p>Buscando...</p>
   </div>
 
-  <!-- Grid de personajes -->
+  <!-- Characters Grid -->
   <div class="characters-grid" *ngIf="!isLoading && !isSearching">
-    <app-character-card 
+    <app-character-card
       *ngFor="let character of filteredCharacters"
       [character]="character"
-      [isFavorite]="false"
-      
-      (cardClicked)="onCharacterClicked($event)">
-    </app-character-card>
-
-    <!-- Estado vacío -->
-    <div *ngIf="filteredCharacters.length === 0" class="empty-state">
-      <ion-icon name="search-outline" size="large"></ion-icon>
-      <h3>No se encontraron personajes</h3>
-      <p *ngIf="hasActiveFilters">Intenta ajustar los filtros</p>
-      <ion-button 
-        *ngIf="hasActiveFilters"
-        fill="outline" 
-        (click)="clearFilters()">
-        Limpiar Filtros
-      </ion-button>
-    </div>
+      (cardClicked)="onCharacterClicked($event)"
+      (favoriteToggled)="onFavoriteToggled($event)"
+    ></app-character-card>
   </div>
 
-  <!-- Pull to refresh -->
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!isLoading && !isSearching && filteredCharacters.length === 0">
+    <ion-icon name="search-outline"></ion-icon>
+    <h3>No se encontraron personajes</h3>
+    <p>Intenta con otros términos de búsqueda o filtros</p>
+    <ion-button (click)="clearFilters()" fill="outline">
+      Limpiar búsqueda
+    </ion-button>
+  </div>
+
+  <!-- Refresh -->
   <ion-refresher slot="fixed" (ionRefresh)="refreshCharacters($event)">
-  <ion-refresher-content
-    pullingIcon="chevron-down-circle-outline"
-    pullingText="Tira para actualizar"
-    refreshingSpinner="circles"
-    refreshingText="Actualizando...">
-  </ion-refresher-content>
-</ion-refresher>
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 </ion-content>

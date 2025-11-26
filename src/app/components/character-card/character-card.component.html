@@ -1,7 +1,7 @@
 <ion-card (click)="onCardClick()" class="character-card">
   <div class="card-image">
     <img 
-      [src]="character.thumbnail?.path + '.' + character.thumbnail?.extension" 
+      [src]="character.image" 
       [alt]="character.name"
       class="character-image"
       (error)="onImageError($event)"
@@ -12,6 +12,7 @@
       fill="clear" 
       class="favorite-btn"
       (click)="onFavoriteClick($event)"
+      [attr.aria-label]="isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'"
     >
       <ion-icon 
         [name]="isFavorite ? 'heart' : 'heart-outline'" 
@@ -27,7 +28,7 @@
     <!-- Rating -->
     <div class="rating-badge" *ngIf="character.rating">
       <ion-icon name="star"></ion-icon>
-      {{ character.rating }}
+      {{ character.rating | number:'1.1-1' }}
     </div>
   </div>
 
@@ -64,6 +65,18 @@
       {{ character.biography || 'Sin biografía disponible' }}
     </p>
     
+    <!--Sección de poderes -->
+    <div class="powers-minimalist" *ngIf="character.powers && character.powers.length > 0">
+      <div class="powers-tags">
+        <span class="power-tag" *ngFor="let power of character.powers.slice(0, 2)">
+          {{ power }}
+        </span>
+        <span class="power-more" *ngIf="character.powers.length > 2">
+          +{{ character.powers.length - 2 }}
+        </span>
+      </div>
+    </div>
+
     <!-- Estadísticas de poder rápidas -->
     <div class="quick-stats" *ngIf="character.powerStats">
       <div class="stat-row">
@@ -86,17 +99,6 @@
           </ion-badge>
         </div>
       </div>
-    </div>
-
-    <!-- Poderes (primeros 2) -->
-    <div class="powers-preview" *ngIf="character.powers && character.powers.length > 0">
-      <small>Poderes: </small>
-      <ion-badge color="success" *ngFor="let power of character.powers.slice(0, 2)">
-        {{ power }}
-      </ion-badge>
-      <ion-badge color="medium" *ngIf="character.powers.length > 2">
-        +{{ character.powers.length - 2 }}
-      </ion-badge>
     </div>
 
     <!-- Nivel de poder general -->
