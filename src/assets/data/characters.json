@@ -8,7 +8,7 @@
         "El Caballero de la Noche"
       ],
       "universe": "DC",
-      "affiliation": "Héroe",
+      "affiliation": "Hero",
       "powerStats": {
         "intelligence": 100,
         "strength": 30,
@@ -43,7 +43,7 @@
         "El Hombre de Acero"
       ],
       "universe": "DC",
-      "affiliation": "Héroe",
+      "affiliation": "Hero",
       "powerStats": {
         "intelligence": 95,
         "strength": 100,
@@ -79,7 +79,7 @@
         "El Hombre Araña"
       ],
       "universe": "Marvel",
-      "affiliation": "Héroe",
+      "affiliation": "Hero",
       "powerStats": {
         "intelligence": 90,
         "strength": 55,
@@ -181,7 +181,7 @@
         "Princesa de Themyscira"
       ],
       "universe": "DC",
-      "affiliation": "Héroe",
+      "affiliation": "Hero",
       "powerStats": {
         "intelligence": 88,
         "strength": 100,
@@ -219,7 +219,7 @@
         "The Invincible Iron Man"
       ],
       "universe": "Marvel",
-      "affiliation": "Héroe",
+      "affiliation": "Hero",
       "powerStats": {
         "intelligence": 100,
         "strength": 85,
@@ -248,5 +248,12 @@
       }
     }
   ],
-  "favorites": []
+  "favorites": [
+    {
+      "id": "90b5",
+      "characterId": "wonder-woman",
+      "userId": "default-user",
+      "addedAt": "2025-11-26T19:09:12.262Z"
+    }
+  ]
 }

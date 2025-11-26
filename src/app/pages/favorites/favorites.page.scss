@@ -15,7 +15,7 @@
   position: relative;
   height: 200px;
   overflow: hidden;
-  background: #f8f9fa;
+  background: var(--ion-color-light);
 
   .character-image {
     width: 100%;
@@ -25,38 +25,33 @@
     display: block;
   }
 
-  // Botón de favoritos más grande y visible
+  // Botón
   .favorite-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    --background: rgba(0, 0, 0, 0.5);
-    --border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    z-index: 10;
+  position: absolute;
+  top: 16px !important;
+  right: 16px !important;
+  --background: rgba(0, 0, 0, 0.7) !important;
+  --border-radius: 50% !important;
+  width: 56px !important; // ← Muy grande
+  height: 56px !important; // ← Muy grande
+  z-index: 100 !important;
+  --box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  
+  ion-icon {
+    font-size: 3rem !important; // ← Enorme
+    width: 44px !important;
+    height: 44px !important;
+    color: white !important;
     
-    ion-icon {
-      font-size: 30px;
-      color: white !important; // Color blanco siempre
-
-    // Efecto hover
-    &:hover {
-      --background: rgba(0, 0, 0, 0.9);
-      transform: scale(1.1);
-      transition: all 0.2s ease;
-    }
-
-    // Estado activo cuando es favorito
-    &.is-favorite {
-      --background: rgba(220, 53, 69, 0.9); // Rojo semitransparente cuando es favorito
-      
-      ion-icon {
-        color: white !important;
-        animation: pulse 0.3s ease;
-      }
+    &.favorited {
+      color: #ff2a4f !important;
     }
   }
+}
 
   .universe-badge {
     position: absolute;
@@ -258,5 +253,4 @@
       font-size: 0.7em;
     }
   }
-}
 }
