@@ -1,42 +1,40 @@
-<!-- src/app/pages/favorites/favorites.page.html -->
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/explore"></ion-back-button>
-    </ion-buttons>
     <ion-title>Favoritos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="loading" *ngIf="loading">
+  <!-- Loading State -->
+  <div class="loading-container" *ngIf="loading">
     <ion-spinner></ion-spinner>
     <p>Cargando favoritos...</p>
   </div>
 
-  <div class="favorites-container" *ngIf="!loading">
-    <div class="results-info">
-      {{ favorites.length }} {{ favorites.length === 1 ? 'favorito' : 'favoritos' }}
-    </div>
-
-    <div class="characters-grid" *ngIf="favorites.length > 0">
-      <app-character-card 
-        *ngFor="let favorite of favorites"
-        [character]="favorite.character"
-        [isFavorite]="true"
-        (favoriteToggled)="onFavoriteToggled($event)"
-        (cardClicked)="viewCharacter($event)">
-      </app-character-card>
-    </div>
-
-    <div class="empty-state" *ngIf="favorites.length === 0">
-      <ion-icon name="heart-outline" size="large"></ion-icon>
-      <h3>No tienes favoritos</h3>
-      <p>Agrega algunos personajes a tus favoritos desde la página de exploración</p>
-    </div>
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!loading && favorites.length === 0">
+    <ion-icon name="heart-outline" size="large"></ion-icon>
+    <h3>No tienes favoritos</h3>
+    <p>Agrega algunos héroes o villanos a tus favoritos para verlos aquí</p>
+    <ion-button routerLink="/explore" fill="solid">
+      <ion-icon name="search" slot="start"></ion-icon>
+      Explorar Personajes
+    </ion-button>
   </div>
 
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <!-- Favorites Grid -->
+  <div class="favorites-grid" *ngIf="!loading && favorites.length > 0">
+    <app-character-card
+      *ngFor="let favorite of favorites"
+      [character]="favorite.character"
+      [isFavorite]="true"
+      (cardClicked)="onCharacterClicked(favorite.character)"
+      (favoriteToggled)="onFavoriteToggled(favorite.characterId)"
+    ></app-character-card>
+  </div>
+
+  <!-- Refresh -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" *ngIf="favorites.length > 0">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 </ion-content>

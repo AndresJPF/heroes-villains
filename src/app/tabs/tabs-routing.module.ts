@@ -15,10 +15,10 @@ const routes: Routes = [
         path: 'favorites',
         loadChildren: () => import('../pages/favorites/favorites.module').then(m => m.FavoritesPageModule)
       },
-      {
-        path: 'settings',
-        loadChildren: () => import('../pages/settings/settings.module').then(m => m.SettingsPageModule)
-      },
+      // {
+      //   path: 'settings',
+      //   loadChildren: () => import('../pages/settings/settings.module').then(m => m.SettingsPageModule)
+      // },
       {
         path: '',
         redirectTo: '/tabs/explore',

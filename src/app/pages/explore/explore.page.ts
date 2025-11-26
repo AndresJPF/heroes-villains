@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { CharactersService } from '../services/characters.service';
 import { FavoriteService } from '../services/favorites.service';
 import { CharacterCardComponent } from '../../components/character-card/character-card.component';
+import { CharacterDetailModalComponent } from '../../components/character-detail-modal/character-detail-modal.component';
 import { Character, CharacterFilter } from '../../models/character.interface';
 
 @Component({
@@ -35,11 +36,11 @@ export class ExplorePage implements OnInit {
 
   // Debounce para búsqueda
   private searchTimeout: any;
-  router: any;
 
   constructor(
     private charactersService: CharactersService,
-    private favoriteService: FavoriteService
+    private favoriteService: FavoriteService,
+    private modalController: ModalController
   ) { }
 
   async ngOnInit() {
@@ -47,11 +48,11 @@ export class ExplorePage implements OnInit {
     this.loadFilterOptions();
   }
 
-  loadCharacters() {
+  async loadCharacters() {
     this.isLoading = true;
     this.charactersService.getCharacters().subscribe({
       next: (result) => {
-        this.characters = result.characters;  // ✅ CORREGIDO: result.characters
+        this.characters = result.characters;
         this.filteredCharacters = [...this.characters];
         this.applySorting();
         this.isLoading = false;
@@ -62,6 +63,35 @@ export class ExplorePage implements OnInit {
       }
     });
   }
+
+  async onCharacterClicked(character: Character) {
+  console.log('Opening modal for character:', character.name);
+  
+  try {
+    const modal = await this.modalController.create({
+      component: CharacterDetailModalComponent,
+      componentProps: {
+        character: character
+      },
+      cssClass: 'character-detail-modal',
+      backdropDismiss: true,
+      keyboardClose: true,
+      mode: 'ios',
+      breakpoints: [0.5, 0.75, 0.9],
+      initialBreakpoint: 0.75,
+      handle: false
+    });
+
+    modal.onDidDismiss().then(() => {
+      console.log('Modal dismissed successfully');
+    });
+
+    await modal.present();
+    
+  } catch (error) {
+    console.error('Error opening modal:', error);
+  }
+}
 
   loadFilterOptions() {
     this.charactersService.getUniverses().subscribe({
@@ -86,7 +116,6 @@ export class ExplorePage implements OnInit {
   }
 
   onSearchInput() {
-    // Debounce para evitar muchas búsquedas
     clearTimeout(this.searchTimeout);
     this.isSearching = true;
     
@@ -103,10 +132,9 @@ export class ExplorePage implements OnInit {
       };
 
       if (this.searchQuery.trim() === '' && !filters.universe && !filters.affiliation) {
-        // Si no hay búsqueda ni filtros, mostrar todos
         this.charactersService.getCharacters().subscribe({
           next: (result) => {
-            this.filteredCharacters = result.characters;  // ✅ CORREGIDO
+            this.filteredCharacters = result.characters;
             this.applySorting();
             this.isSearching = false;
           },
@@ -116,7 +144,6 @@ export class ExplorePage implements OnInit {
           }
         });
       } else {
-        // Aplicar búsqueda y filtros
         this.charactersService.searchCharacters(this.searchQuery, filters).subscribe({
           next: (characters) => {
             this.filteredCharacters = characters;
@@ -184,39 +211,24 @@ export class ExplorePage implements OnInit {
            this.selectedAffiliation !== 'all';
   }
 
-  async checkFavoritesStatus() {
-    console.log('Favorites status checked');
-  }
-
-async onFavoriteToggled(characterId: string) {
-  try {
-    const isCurrentlyFavorite = await this.favoriteService.isFavorite(characterId);
-    
-    if (isCurrentlyFavorite) {
-      await this.favoriteService.removeFavorite(characterId);
-      console.log('Removed from favorites:', characterId);
-    } else {
-      await this.favoriteService.addFavorite(characterId);
-      console.log('Added to favorites:', characterId);
+  async onFavoriteToggled(characterId: string) {
+    try {
+      const isCurrentlyFavorite = await this.favoriteService.isFavorite(characterId);
+      
+      if (isCurrentlyFavorite) {
+        await this.favoriteService.removeFavorite(characterId);
+        console.log('Removed from favorites:', characterId);
+      } else {
+        await this.favoriteService.addFavorite(characterId);
+        console.log('Added to favorites:', characterId);
+      }
+    } catch (error) {
+      console.error('Error toggling favorite:', error);
     }
-  } catch (error) {
-    console.error('Error toggling favorite:', error);
-  }
-}
-
-  onCharacterClicked(characterId: string) {
-    console.log('Character clicked:', characterId);
-    this.viewCharacter(characterId);
   }
 
   async refreshCharacters(event: any) {
     await this.loadCharacters();
     event.target.complete();
   }
-
-  viewCharacter(characterId: string) {
-    console.log('Character clicked:', characterId);
-    this.router.navigate(['/detail', characterId]);
-  }
-
 }

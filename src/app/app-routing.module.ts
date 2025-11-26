@@ -14,18 +14,10 @@ const routes: Routes = [
     path: 'favorites',
     loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritesPageModule)
   },
-  {
-    path: 'settings',
-    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
-  },
-  {
-    path: 'detail',
-    loadChildren: () => import('./pages/detail/detail.module').then( m => m.DetailPageModule)
-  },
-  {
-    path: 'detail/:id',
-    loadComponent: () => import('./pages/detail/detail.page').then(m => m.DetailPage)
-  }
+  // {
+  //   path: 'settings',
+  //   loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  // }
 ];
 @NgModule({
   imports: [

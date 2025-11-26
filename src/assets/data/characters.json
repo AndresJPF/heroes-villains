@@ -48,7 +48,7 @@
       "weaknesses": ["Kryptonite", "Magic"],
       "firstAppearance": 1938,
       "rating": 4.9,
-      "image": "assets/images/superman.jpg",
+      "image": "assets/images/characters/superman.jpg",
       "biography": "El último hijo de Krypton, enviado a la Tierra donde se convierte en su mayor protector.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Superman"
@@ -62,7 +62,7 @@
       "extension": "jpg"},
       "aliases": ["The Clown Prince of Crime"],
       "universe": "DC",
-      "affiliation": "Villain",
+      "affiliation": "Villaino",
       "powerStats": {
         "intelligence": 90,
         "strength": 15,
@@ -71,11 +71,11 @@
         "power": 25,
         "combat": 70
       },
-      "powers": ["Criminal mastermind", "Expert chemist", "Manipulation"],
+      "powers": ["Mente criminal", "Quimico experto", "Manipulación"],
       "weaknesses": ["Mental instability", "Obsession with Batman"],
       "firstAppearance": 1940,
       "rating": 4.5,
-      "image": "assets/images/joker.jpg",
+      "image": "assets/images/characters/joker.jpg",
       "biography": "Un criminal psicópata con un sentido del humor retorcido, obsesionado con Batman.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Joker_(personaje)"
@@ -98,11 +98,11 @@
         "power": 70,
         "combat": 85
       },
-      "powers": ["Wall-crawling", "Spider-sense", "Super strength", "Web shooting"],
+      "powers": ["Trepar paredes", "Sentido aracnido", "Super fuerza", "Disparar telarañas"],
       "weaknesses": ["Responsibility", "Personal life conflicts"],
       "firstAppearance": 1962,
       "rating": 4.6,
-      "image": "assets/images/spiderman.jpg",
+      "image": "assets/images/characters/spiderman.jpg",
       "biography": "Peter Parker, un adolescente que obtiene poderes arácnidos después de ser picado por una araña radiactiva.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Spider-Man"
@@ -125,11 +125,11 @@
         "power": 100,
         "combat": 85
       },
-      "powers": ["Super strength", "Energy projection", "Teleportation", "Immortality"],
-      "weaknesses": ["Arrogance", "Emotional attachments"],
+      "powers": ["Super fuerza", "Proyección de energía", "Teletransportación", "Inmortalidad"],
+      "weaknesses": ["Arrogante", "Apego emocional"],
       "firstAppearance": 1973,
       "rating": 4.8,
-      "image": "assets/images/thanos.jpg",
+      "image": "assets/images/characters/thanos.jpg",
       "biography": "Un poderoso titán obsesionado con el concepto de equilibrio en el universo.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Thanos"
@@ -156,7 +156,7 @@
       "weaknesses": ["Piercing weapons", "Being bound by a man"],
       "firstAppearance": 1941,
       "rating": 4.6,
-      "image": "assets/images/wonder-woman.jpg",
+      "image": "assets/images/characters/wonder-woman.jpg",
       "biography": "Princesa amazona y superheroína que lucha por la justicia y la paz.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Wonder_Woman"
@@ -183,7 +183,7 @@
       "weaknesses": ["Dependence on armor", "Heart condition", "Arrogance"],
       "firstAppearance": 1963,
       "rating": 4.7,
-      "image": "assets/images/iron-man.jpg",
+      "image": "assets/images/characters/iron-man.jpg",
       "biography": "Tony Stark, un genio inventor que crea una armadura tecnológica para combatir el crimen.",
       "links": {
         "wiki": "https://es.wikipedia.org/wiki/Iron_Man"
